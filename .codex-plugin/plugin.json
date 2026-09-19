@@ -1,0 +1,40 @@
+{
+  "name": "intralogistics-flow-analyzer",
+  "version": "0.1.2",
+  "description": "Community Edition for deterministic warehouse-flow analysis, spaghetti diagrams and constraint-safe slotting simulations.",
+  "author": {
+    "name": "Sylvain Gerbe",
+    "url": "https://nebolt.ai"
+  },
+  "homepage": "https://nebolt.ai/flow-analyzer/",
+  "repository": "https://github.com/neboltai/industrial-flow-analyzer",
+  "license": "MIT",
+  "keywords": [
+    "intralogistics",
+    "warehouse",
+    "slotting",
+    "spaghetti-diagram",
+    "lean",
+    "material-flow"
+  ],
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "Intralogistics Flow Analyzer",
+    "shortDescription": "Warehouse flow and slotting analysis",
+    "longDescription": "A local, deterministic Python engine that turns structured warehouse exports into modelled route metrics, spaghetti diagrams and constraint-safe slotting simulations. Real exports are analysed with the 'ifa' command line on your own machine; the bundled MCP server is a read-only demonstration over fictional datasets.",
+    "developerName": "Sylvain Gerbe",
+    "category": "Productivity",
+    "capabilities": [
+      "Analyze",
+      "Read"
+    ],
+    "websiteURL": "https://nebolt.ai/flow-analyzer/",
+    "defaultPrompt": [
+      "Validate and analyze the supplied warehouse dataset, or run the fictional demonstration dataset when no customer data is provided.",
+      "Run the fictional demonstration dataset and explain what the engine produces.",
+      "Generate a spaghetti diagram of the modelled pick routes."
+    ],
+    "brandColor": "#228B22"
+  }
+}

@@ -1,0 +1,2005 @@
+{
+  "schema_version": "1.0",
+  "meta": {
+    "dataset_id": "fictional-aisle-warehouse",
+    "site_id": "SITE-FICTIONAL-AISLE",
+    "period_start": "2026-04-02T00:00:00+02:00",
+    "period_end": "2026-04-08T23:59:59+02:00",
+    "distance_unit": "m",
+    "time_zone": "Europe/Berlin",
+    "source": "Fictional aisle warehouse generated for a landing-page spaghetti diagram. Not derived from a commercial floor-plan image.",
+    "fictional": true,
+    "sequence_basis": "planned",
+    "distance_basis": "declared_graph_shortest_path"
+  },
+  "layout": {
+    "nodes": [
+      {
+        "node_id": "RECV",
+        "x_m": 30.0,
+        "y_m": 46.0,
+        "node_type": "receiving",
+        "zone_id": "Z-IN"
+      },
+      {
+        "node_id": "PACK",
+        "x_m": 40.0,
+        "y_m": 3.0,
+        "node_type": "packing",
+        "zone_id": "Z-OUT"
+      },
+      {
+        "node_id": "SHIP",
+        "x_m": 30.0,
+        "y_m": 0.0,
+        "node_type": "shipping",
+        "zone_id": "Z-OUT"
+      },
+      {
+        "node_id": "OUT",
+        "x_m": 30.0,
+        "y_m": 3.0,
+        "node_type": "junction",
+        "zone_id": "Z-OUT"
+      },
+      {
+        "node_id": "AN",
+        "x_m": 10.0,
+        "y_m": 38.0,
+        "node_type": "junction",
+        "zone_id": "Z-PICK"
+      },
+      {
+        "node_id": "AS",
+        "x_m": 10.0,
+        "y_m": 8.0,
+        "node_type": "junction",
+        "zone_id": "Z-PICK"
+      },
+      {
+        "node_id": "A30",
+        "x_m": 10.0,
+        "y_m": 30.0,
+        "node_type": "location_access",
+        "zone_id": "Z-PICK"
+      },
+      {
+        "node_id": "A22",
+        "x_m": 10.0,
+        "y_m": 22.0,
+        "node_type": "location_access",
+        "zone_id": "Z-PICK"
+      },
+      {
+        "node_id": "A14",
+        "x_m": 10.0,
+        "y_m": 14.0,
+        "node_type": "location_access",
+        "zone_id": "Z-PICK"
+      },
+      {
+        "node_id": "BN",
+        "x_m": 20.0,
+        "y_m": 38.0,
+        "node_type": "junction",
+        "zone_id": "Z-PICK"
+      },
+      {
+        "node_id": "BS",
+        "x_m": 20.0,
+        "y_m": 8.0,
+        "node_type": "junction",
+        "zone_id": "Z-PICK"
+      },
+      {
+        "node_id": "B30",
+        "x_m": 20.0,
+        "y_m": 30.0,
+        "node_type": "location_access",
+        "zone_id": "Z-PICK"
+      },
+      {
+        "node_id": "B22",
+        "x_m": 20.0,
+        "y_m": 22.0,
+        "node_type": "location_access",
+        "zone_id": "Z-PICK"
+      },
+      {
+        "node_id": "B14",
+        "x_m": 20.0,
+        "y_m": 14.0,
+        "node_type": "location_access",
+        "zone_id": "Z-PICK"
+      },
+      {
+        "node_id": "CN",
+        "x_m": 30.0,
+        "y_m": 38.0,
+        "node_type": "junction",
+        "zone_id": "Z-PICK"
+      },
+      {
+        "node_id": "CS",
+        "x_m": 30.0,
+        "y_m": 8.0,
+        "node_type": "junction",
+        "zone_id": "Z-PICK"
+      },
+      {
+        "node_id": "C30",
+        "x_m": 30.0,
+        "y_m": 30.0,
+        "node_type": "location_access",
+        "zone_id": "Z-PICK"
+      },
+      {
+        "node_id": "C22",
+        "x_m": 30.0,
+        "y_m": 22.0,
+        "node_type": "location_access",
+        "zone_id": "Z-PICK"
+      },
+      {
+        "node_id": "C14",
+        "x_m": 30.0,
+        "y_m": 14.0,
+        "node_type": "location_access",
+        "zone_id": "Z-PICK"
+      },
+      {
+        "node_id": "DN",
+        "x_m": 40.0,
+        "y_m": 38.0,
+        "node_type": "junction",
+        "zone_id": "Z-PICK"
+      },
+      {
+        "node_id": "DS",
+        "x_m": 40.0,
+        "y_m": 8.0,
+        "node_type": "junction",
+        "zone_id": "Z-PICK"
+      },
+      {
+        "node_id": "D30",
+        "x_m": 40.0,
+        "y_m": 30.0,
+        "node_type": "location_access",
+        "zone_id": "Z-PICK"
+      },
+      {
+        "node_id": "D22",
+        "x_m": 40.0,
+        "y_m": 22.0,
+        "node_type": "location_access",
+        "zone_id": "Z-PICK"
+      },
+      {
+        "node_id": "D14",
+        "x_m": 40.0,
+        "y_m": 14.0,
+        "node_type": "location_access",
+        "zone_id": "Z-PICK"
+      },
+      {
+        "node_id": "EN",
+        "x_m": 50.0,
+        "y_m": 38.0,
+        "node_type": "junction",
+        "zone_id": "Z-PICK"
+      },
+      {
+        "node_id": "ES",
+        "x_m": 50.0,
+        "y_m": 8.0,
+        "node_type": "junction",
+        "zone_id": "Z-PICK"
+      },
+      {
+        "node_id": "E30",
+        "x_m": 50.0,
+        "y_m": 30.0,
+        "node_type": "location_access",
+        "zone_id": "Z-PICK"
+      },
+      {
+        "node_id": "E22",
+        "x_m": 50.0,
+        "y_m": 22.0,
+        "node_type": "location_access",
+        "zone_id": "Z-PICK"
+      },
+      {
+        "node_id": "E14",
+        "x_m": 50.0,
+        "y_m": 14.0,
+        "node_type": "location_access",
+        "zone_id": "Z-PICK"
+      }
+    ],
+    "edges": [
+      {
+        "edge_id": "E-AN-A30",
+        "from_node": "AN",
+        "to_node": "A30",
+        "distance_m": 8.0,
+        "bidirectional": true,
+        "allowed_modes": [
+          "pedestrian",
+          "forklift"
+        ]
+      },
+      {
+        "edge_id": "E-A30-A22",
+        "from_node": "A30",
+        "to_node": "A22",
+        "distance_m": 8.0,
+        "bidirectional": true,
+        "allowed_modes": [
+          "pedestrian",
+          "forklift"
+        ]
+      },
+      {
+        "edge_id": "E-A22-A14",
+        "from_node": "A22",
+        "to_node": "A14",
+        "distance_m": 8.0,
+        "bidirectional": true,
+        "allowed_modes": [
+          "pedestrian",
+          "forklift"
+        ]
+      },
+      {
+        "edge_id": "E-A14-AS",
+        "from_node": "A14",
+        "to_node": "AS",
+        "distance_m": 6.0,
+        "bidirectional": true,
+        "allowed_modes": [
+          "pedestrian",
+          "forklift"
+        ]
+      },
+      {
+        "edge_id": "E-BN-B30",
+        "from_node": "BN",
+        "to_node": "B30",
+        "distance_m": 8.0,
+        "bidirectional": true,
+        "allowed_modes": [
+          "pedestrian",
+          "forklift"
+        ]
+      },
+      {
+        "edge_id": "E-B30-B22",
+        "from_node": "B30",
+        "to_node": "B22",
+        "distance_m": 8.0,
+        "bidirectional": true,
+        "allowed_modes": [
+          "pedestrian",
+          "forklift"
+        ]
+      },
+      {
+        "edge_id": "E-B22-B14",
+        "from_node": "B22",
+        "to_node": "B14",
+        "distance_m": 8.0,
+        "bidirectional": true,
+        "allowed_modes": [
+          "pedestrian",
+          "forklift"
+        ]
+      },
+      {
+        "edge_id": "E-B14-BS",
+        "from_node": "B14",
+        "to_node": "BS",
+        "distance_m": 6.0,
+        "bidirectional": true,
+        "allowed_modes": [
+          "pedestrian",
+          "forklift"
+        ]
+      },
+      {
+        "edge_id": "E-CN-C30",
+        "from_node": "CN",
+        "to_node": "C30",
+        "distance_m": 8.0,
+        "bidirectional": true,
+        "allowed_modes": [
+          "pedestrian",
+          "forklift"
+        ]
+      },
+      {
+        "edge_id": "E-C30-C22",
+        "from_node": "C30",
+        "to_node": "C22",
+        "distance_m": 8.0,
+        "bidirectional": true,
+        "allowed_modes": [
+          "pedestrian",
+          "forklift"
+        ]
+      },
+      {
+        "edge_id": "E-C22-C14",
+        "from_node": "C22",
+        "to_node": "C14",
+        "distance_m": 8.0,
+        "bidirectional": true,
+        "allowed_modes": [
+          "pedestrian",
+          "forklift"
+        ]
+      },
+      {
+        "edge_id": "E-C14-CS",
+        "from_node": "C14",
+        "to_node": "CS",
+        "distance_m": 6.0,
+        "bidirectional": true,
+        "allowed_modes": [
+          "pedestrian",
+          "forklift"
+        ]
+      },
+      {
+        "edge_id": "E-DN-D30",
+        "from_node": "DN",
+        "to_node": "D30",
+        "distance_m": 8.0,
+        "bidirectional": true,
+        "allowed_modes": [
+          "pedestrian",
+          "forklift"
+        ]
+      },
+      {
+        "edge_id": "E-D30-D22",
+        "from_node": "D30",
+        "to_node": "D22",
+        "distance_m": 8.0,
+        "bidirectional": true,
+        "allowed_modes": [
+          "pedestrian",
+          "forklift"
+        ]
+      },
+      {
+        "edge_id": "E-D22-D14",
+        "from_node": "D22",
+        "to_node": "D14",
+        "distance_m": 8.0,
+        "bidirectional": true,
+        "allowed_modes": [
+          "pedestrian",
+          "forklift"
+        ]
+      },
+      {
+        "edge_id": "E-D14-DS",
+        "from_node": "D14",
+        "to_node": "DS",
+        "distance_m": 6.0,
+        "bidirectional": true,
+        "allowed_modes": [
+          "pedestrian",
+          "forklift"
+        ]
+      },
+      {
+        "edge_id": "E-EN-E30",
+        "from_node": "EN",
+        "to_node": "E30",
+        "distance_m": 8.0,
+        "bidirectional": true,
+        "allowed_modes": [
+          "pedestrian",
+          "forklift"
+        ]
+      },
+      {
+        "edge_id": "E-E30-E22",
+        "from_node": "E30",
+        "to_node": "E22",
+        "distance_m": 8.0,
+        "bidirectional": true,
+        "allowed_modes": [
+          "pedestrian",
+          "forklift"
+        ]
+      },
+      {
+        "edge_id": "E-E22-E14",
+        "from_node": "E22",
+        "to_node": "E14",
+        "distance_m": 8.0,
+        "bidirectional": true,
+        "allowed_modes": [
+          "pedestrian",
+          "forklift"
+        ]
+      },
+      {
+        "edge_id": "E-E14-ES",
+        "from_node": "E14",
+        "to_node": "ES",
+        "distance_m": 6.0,
+        "bidirectional": true,
+        "allowed_modes": [
+          "pedestrian",
+          "forklift"
+        ]
+      },
+      {
+        "edge_id": "E-NC-AN-BN",
+        "from_node": "AN",
+        "to_node": "BN",
+        "distance_m": 10.0,
+        "bidirectional": true,
+        "allowed_modes": [
+          "pedestrian",
+          "forklift"
+        ]
+      },
+      {
+        "edge_id": "E-NC-BN-CN",
+        "from_node": "BN",
+        "to_node": "CN",
+        "distance_m": 10.0,
+        "bidirectional": true,
+        "allowed_modes": [
+          "pedestrian",
+          "forklift"
+        ]
+      },
+      {
+        "edge_id": "E-NC-CN-DN",
+        "from_node": "CN",
+        "to_node": "DN",
+        "distance_m": 10.0,
+        "bidirectional": true,
+        "allowed_modes": [
+          "pedestrian",
+          "forklift"
+        ]
+      },
+      {
+        "edge_id": "E-NC-DN-EN",
+        "from_node": "DN",
+        "to_node": "EN",
+        "distance_m": 10.0,
+        "bidirectional": true,
+        "allowed_modes": [
+          "pedestrian",
+          "forklift"
+        ]
+      },
+      {
+        "edge_id": "E-SC-AS-BS",
+        "from_node": "AS",
+        "to_node": "BS",
+        "distance_m": 10.0,
+        "bidirectional": true,
+        "allowed_modes": [
+          "pedestrian",
+          "forklift"
+        ]
+      },
+      {
+        "edge_id": "E-SC-BS-CS",
+        "from_node": "BS",
+        "to_node": "CS",
+        "distance_m": 10.0,
+        "bidirectional": true,
+        "allowed_modes": [
+          "pedestrian",
+          "forklift"
+        ]
+      },
+      {
+        "edge_id": "E-SC-CS-DS",
+        "from_node": "CS",
+        "to_node": "DS",
+        "distance_m": 10.0,
+        "bidirectional": true,
+        "allowed_modes": [
+          "pedestrian",
+          "forklift"
+        ]
+      },
+      {
+        "edge_id": "E-SC-DS-ES",
+        "from_node": "DS",
+        "to_node": "ES",
+        "distance_m": 10.0,
+        "bidirectional": true,
+        "allowed_modes": [
+          "pedestrian",
+          "forklift"
+        ]
+      },
+      {
+        "edge_id": "E-RECV-CN",
+        "from_node": "RECV",
+        "to_node": "CN",
+        "distance_m": 8.0,
+        "bidirectional": true,
+        "allowed_modes": [
+          "pedestrian",
+          "forklift"
+        ]
+      },
+      {
+        "edge_id": "E-DS-PACK",
+        "from_node": "DS",
+        "to_node": "PACK",
+        "distance_m": 5.0,
+        "bidirectional": true,
+        "allowed_modes": [
+          "pedestrian",
+          "forklift"
+        ]
+      },
+      {
+        "edge_id": "E-CS-SHIP",
+        "from_node": "CS",
+        "to_node": "SHIP",
+        "distance_m": 8.0,
+        "bidirectional": true,
+        "allowed_modes": [
+          "pedestrian",
+          "forklift"
+        ]
+      },
+      {
+        "edge_id": "E-PACK-OUT",
+        "from_node": "PACK",
+        "to_node": "OUT",
+        "distance_m": 10.0,
+        "bidirectional": true,
+        "allowed_modes": [
+          "pedestrian",
+          "forklift"
+        ]
+      },
+      {
+        "edge_id": "E-OUT-SHIP",
+        "from_node": "OUT",
+        "to_node": "SHIP",
+        "distance_m": 3.0,
+        "bidirectional": true,
+        "allowed_modes": [
+          "pedestrian",
+          "forklift"
+        ]
+      }
+    ]
+  },
+  "locations": [
+    {
+      "location_id": "A30L",
+      "access_node_id": "A30",
+      "zone_id": "Z-PICK",
+      "location_type": "pick",
+      "capacity_volume_m3": 1.2,
+      "capacity_weight_kg": 250.0,
+      "max_unit_weight_kg": 25.0,
+      "temperature_zone": "ambient",
+      "hazard_classes_allowed": [
+        "none"
+      ],
+      "allowed_modes": [
+        "pedestrian",
+        "forklift"
+      ],
+      "level": 1,
+      "fixed": false
+    },
+    {
+      "location_id": "A30R",
+      "access_node_id": "A30",
+      "zone_id": "Z-PICK",
+      "location_type": "pick",
+      "capacity_volume_m3": 1.2,
+      "capacity_weight_kg": 250.0,
+      "max_unit_weight_kg": 25.0,
+      "temperature_zone": "ambient",
+      "hazard_classes_allowed": [
+        "none"
+      ],
+      "allowed_modes": [
+        "pedestrian",
+        "forklift"
+      ],
+      "level": 1,
+      "fixed": false
+    },
+    {
+      "location_id": "A22L",
+      "access_node_id": "A22",
+      "zone_id": "Z-PICK",
+      "location_type": "pick",
+      "capacity_volume_m3": 1.2,
+      "capacity_weight_kg": 250.0,
+      "max_unit_weight_kg": 25.0,
+      "temperature_zone": "ambient",
+      "hazard_classes_allowed": [
+        "none"
+      ],
+      "allowed_modes": [
+        "pedestrian",
+        "forklift"
+      ],
+      "level": 1,
+      "fixed": false
+    },
+    {
+      "location_id": "A22R",
+      "access_node_id": "A22",
+      "zone_id": "Z-PICK",
+      "location_type": "pick",
+      "capacity_volume_m3": 1.2,
+      "capacity_weight_kg": 800.0,
+      "max_unit_weight_kg": 80.0,
+      "temperature_zone": "ambient",
+      "hazard_classes_allowed": [
+        "none"
+      ],
+      "allowed_modes": [
+        "pedestrian",
+        "forklift"
+      ],
+      "level": 1,
+      "fixed": false
+    },
+    {
+      "location_id": "A14L",
+      "access_node_id": "A14",
+      "zone_id": "Z-PICK",
+      "location_type": "pick",
+      "capacity_volume_m3": 1.2,
+      "capacity_weight_kg": 250.0,
+      "max_unit_weight_kg": 25.0,
+      "temperature_zone": "ambient",
+      "hazard_classes_allowed": [
+        "none"
+      ],
+      "allowed_modes": [
+        "pedestrian",
+        "forklift"
+      ],
+      "level": 1,
+      "fixed": false
+    },
+    {
+      "location_id": "A14R",
+      "access_node_id": "A14",
+      "zone_id": "Z-PICK",
+      "location_type": "pick",
+      "capacity_volume_m3": 1.2,
+      "capacity_weight_kg": 250.0,
+      "max_unit_weight_kg": 25.0,
+      "temperature_zone": "ambient",
+      "hazard_classes_allowed": [
+        "none"
+      ],
+      "allowed_modes": [
+        "pedestrian",
+        "forklift"
+      ],
+      "level": 1,
+      "fixed": false
+    },
+    {
+      "location_id": "B30L",
+      "access_node_id": "B30",
+      "zone_id": "Z-PICK",
+      "location_type": "pick",
+      "capacity_volume_m3": 1.2,
+      "capacity_weight_kg": 250.0,
+      "max_unit_weight_kg": 25.0,
+      "temperature_zone": "ambient",
+      "hazard_classes_allowed": [
+        "none"
+      ],
+      "allowed_modes": [
+        "pedestrian",
+        "forklift"
+      ],
+      "level": 1,
+      "fixed": false
+    },
+    {
+      "location_id": "B30R",
+      "access_node_id": "B30",
+      "zone_id": "Z-PICK",
+      "location_type": "pick",
+      "capacity_volume_m3": 1.2,
+      "capacity_weight_kg": 250.0,
+      "max_unit_weight_kg": 25.0,
+      "temperature_zone": "ambient",
+      "hazard_classes_allowed": [
+        "none"
+      ],
+      "allowed_modes": [
+        "pedestrian",
+        "forklift"
+      ],
+      "level": 1,
+      "fixed": false
+    },
+    {
+      "location_id": "B22L",
+      "access_node_id": "B22",
+      "zone_id": "Z-PICK",
+      "location_type": "pick",
+      "capacity_volume_m3": 1.2,
+      "capacity_weight_kg": 250.0,
+      "max_unit_weight_kg": 25.0,
+      "temperature_zone": "ambient",
+      "hazard_classes_allowed": [
+        "none"
+      ],
+      "allowed_modes": [
+        "pedestrian",
+        "forklift"
+      ],
+      "level": 1,
+      "fixed": false
+    },
+    {
+      "location_id": "B22R",
+      "access_node_id": "B22",
+      "zone_id": "Z-PICK",
+      "location_type": "pick",
+      "capacity_volume_m3": 1.2,
+      "capacity_weight_kg": 250.0,
+      "max_unit_weight_kg": 25.0,
+      "temperature_zone": "ambient",
+      "hazard_classes_allowed": [
+        "none"
+      ],
+      "allowed_modes": [
+        "pedestrian",
+        "forklift"
+      ],
+      "level": 1,
+      "fixed": false
+    },
+    {
+      "location_id": "B14L",
+      "access_node_id": "B14",
+      "zone_id": "Z-PICK",
+      "location_type": "pick",
+      "capacity_volume_m3": 1.2,
+      "capacity_weight_kg": 250.0,
+      "max_unit_weight_kg": 25.0,
+      "temperature_zone": "ambient",
+      "hazard_classes_allowed": [
+        "none"
+      ],
+      "allowed_modes": [
+        "pedestrian",
+        "forklift"
+      ],
+      "level": 1,
+      "fixed": true
+    },
+    {
+      "location_id": "B14R",
+      "access_node_id": "B14",
+      "zone_id": "Z-PICK",
+      "location_type": "pick",
+      "capacity_volume_m3": 1.2,
+      "capacity_weight_kg": 250.0,
+      "max_unit_weight_kg": 25.0,
+      "temperature_zone": "ambient",
+      "hazard_classes_allowed": [
+        "none"
+      ],
+      "allowed_modes": [
+        "pedestrian",
+        "forklift"
+      ],
+      "level": 1,
+      "fixed": false
+    },
+    {
+      "location_id": "C30L",
+      "access_node_id": "C30",
+      "zone_id": "Z-PICK",
+      "location_type": "pick",
+      "capacity_volume_m3": 1.2,
+      "capacity_weight_kg": 250.0,
+      "max_unit_weight_kg": 25.0,
+      "temperature_zone": "ambient",
+      "hazard_classes_allowed": [
+        "none"
+      ],
+      "allowed_modes": [
+        "pedestrian",
+        "forklift"
+      ],
+      "level": 1,
+      "fixed": false
+    },
+    {
+      "location_id": "C30R",
+      "access_node_id": "C30",
+      "zone_id": "Z-PICK",
+      "location_type": "pick",
+      "capacity_volume_m3": 1.2,
+      "capacity_weight_kg": 250.0,
+      "max_unit_weight_kg": 25.0,
+      "temperature_zone": "ambient",
+      "hazard_classes_allowed": [
+        "none"
+      ],
+      "allowed_modes": [
+        "pedestrian",
+        "forklift"
+      ],
+      "level": 1,
+      "fixed": false
+    },
+    {
+      "location_id": "C22L",
+      "access_node_id": "C22",
+      "zone_id": "Z-PICK",
+      "location_type": "pick",
+      "capacity_volume_m3": 1.2,
+      "capacity_weight_kg": 250.0,
+      "max_unit_weight_kg": 25.0,
+      "temperature_zone": "ambient",
+      "hazard_classes_allowed": [
+        "none"
+      ],
+      "allowed_modes": [
+        "pedestrian",
+        "forklift"
+      ],
+      "level": 1,
+      "fixed": false
+    },
+    {
+      "location_id": "C22R",
+      "access_node_id": "C22",
+      "zone_id": "Z-PICK",
+      "location_type": "pick",
+      "capacity_volume_m3": 1.2,
+      "capacity_weight_kg": 250.0,
+      "max_unit_weight_kg": 25.0,
+      "temperature_zone": "ambient",
+      "hazard_classes_allowed": [
+        "none"
+      ],
+      "allowed_modes": [
+        "pedestrian",
+        "forklift"
+      ],
+      "level": 1,
+      "fixed": false
+    },
+    {
+      "location_id": "C14L",
+      "access_node_id": "C14",
+      "zone_id": "Z-PICK",
+      "location_type": "pick",
+      "capacity_volume_m3": 1.2,
+      "capacity_weight_kg": 250.0,
+      "max_unit_weight_kg": 25.0,
+      "temperature_zone": "ambient",
+      "hazard_classes_allowed": [
+        "none"
+      ],
+      "allowed_modes": [
+        "pedestrian",
+        "forklift"
+      ],
+      "level": 1,
+      "fixed": false
+    },
+    {
+      "location_id": "C14R",
+      "access_node_id": "C14",
+      "zone_id": "Z-PICK",
+      "location_type": "pick",
+      "capacity_volume_m3": 1.2,
+      "capacity_weight_kg": 250.0,
+      "max_unit_weight_kg": 25.0,
+      "temperature_zone": "ambient",
+      "hazard_classes_allowed": [
+        "none"
+      ],
+      "allowed_modes": [
+        "pedestrian",
+        "forklift"
+      ],
+      "level": 1,
+      "fixed": false
+    },
+    {
+      "location_id": "D30L",
+      "access_node_id": "D30",
+      "zone_id": "Z-PICK",
+      "location_type": "pick",
+      "capacity_volume_m3": 1.2,
+      "capacity_weight_kg": 250.0,
+      "max_unit_weight_kg": 25.0,
+      "temperature_zone": "ambient",
+      "hazard_classes_allowed": [
+        "none"
+      ],
+      "allowed_modes": [
+        "pedestrian",
+        "forklift"
+      ],
+      "level": 1,
+      "fixed": false
+    },
+    {
+      "location_id": "D30R",
+      "access_node_id": "D30",
+      "zone_id": "Z-PICK",
+      "location_type": "pick",
+      "capacity_volume_m3": 1.2,
+      "capacity_weight_kg": 250.0,
+      "max_unit_weight_kg": 25.0,
+      "temperature_zone": "ambient",
+      "hazard_classes_allowed": [
+        "none"
+      ],
+      "allowed_modes": [
+        "pedestrian",
+        "forklift"
+      ],
+      "level": 1,
+      "fixed": false
+    },
+    {
+      "location_id": "D22L",
+      "access_node_id": "D22",
+      "zone_id": "Z-PICK",
+      "location_type": "pick",
+      "capacity_volume_m3": 1.2,
+      "capacity_weight_kg": 250.0,
+      "max_unit_weight_kg": 25.0,
+      "temperature_zone": "ambient",
+      "hazard_classes_allowed": [
+        "none"
+      ],
+      "allowed_modes": [
+        "pedestrian",
+        "forklift"
+      ],
+      "level": 1,
+      "fixed": false
+    },
+    {
+      "location_id": "D22R",
+      "access_node_id": "D22",
+      "zone_id": "Z-PICK",
+      "location_type": "pick",
+      "capacity_volume_m3": 1.2,
+      "capacity_weight_kg": 250.0,
+      "max_unit_weight_kg": 25.0,
+      "temperature_zone": "ambient",
+      "hazard_classes_allowed": [
+        "none"
+      ],
+      "allowed_modes": [
+        "pedestrian",
+        "forklift"
+      ],
+      "level": 1,
+      "fixed": false
+    },
+    {
+      "location_id": "D14L",
+      "access_node_id": "D14",
+      "zone_id": "Z-PICK",
+      "location_type": "pick",
+      "capacity_volume_m3": 1.2,
+      "capacity_weight_kg": 250.0,
+      "max_unit_weight_kg": 25.0,
+      "temperature_zone": "ambient",
+      "hazard_classes_allowed": [
+        "none"
+      ],
+      "allowed_modes": [
+        "pedestrian",
+        "forklift"
+      ],
+      "level": 1,
+      "fixed": false
+    },
+    {
+      "location_id": "D14R",
+      "access_node_id": "D14",
+      "zone_id": "Z-PICK",
+      "location_type": "pick",
+      "capacity_volume_m3": 1.2,
+      "capacity_weight_kg": 250.0,
+      "max_unit_weight_kg": 25.0,
+      "temperature_zone": "ambient",
+      "hazard_classes_allowed": [
+        "none"
+      ],
+      "allowed_modes": [
+        "pedestrian",
+        "forklift"
+      ],
+      "level": 1,
+      "fixed": false
+    },
+    {
+      "location_id": "E30L",
+      "access_node_id": "E30",
+      "zone_id": "Z-CHILL",
+      "location_type": "pick",
+      "capacity_volume_m3": 1.2,
+      "capacity_weight_kg": 250.0,
+      "max_unit_weight_kg": 25.0,
+      "temperature_zone": "chilled",
+      "hazard_classes_allowed": [
+        "none"
+      ],
+      "allowed_modes": [
+        "pedestrian",
+        "forklift"
+      ],
+      "level": 1,
+      "fixed": false
+    },
+    {
+      "location_id": "E30R",
+      "access_node_id": "E30",
+      "zone_id": "Z-PICK",
+      "location_type": "pick",
+      "capacity_volume_m3": 1.2,
+      "capacity_weight_kg": 250.0,
+      "max_unit_weight_kg": 25.0,
+      "temperature_zone": "ambient",
+      "hazard_classes_allowed": [
+        "none"
+      ],
+      "allowed_modes": [
+        "pedestrian",
+        "forklift"
+      ],
+      "level": 1,
+      "fixed": false
+    },
+    {
+      "location_id": "E22L",
+      "access_node_id": "E22",
+      "zone_id": "Z-PICK",
+      "location_type": "pick",
+      "capacity_volume_m3": 1.2,
+      "capacity_weight_kg": 250.0,
+      "max_unit_weight_kg": 25.0,
+      "temperature_zone": "ambient",
+      "hazard_classes_allowed": [
+        "none"
+      ],
+      "allowed_modes": [
+        "pedestrian",
+        "forklift"
+      ],
+      "level": 1,
+      "fixed": false
+    },
+    {
+      "location_id": "E22R",
+      "access_node_id": "E22",
+      "zone_id": "Z-PICK",
+      "location_type": "pick",
+      "capacity_volume_m3": 1.2,
+      "capacity_weight_kg": 250.0,
+      "max_unit_weight_kg": 25.0,
+      "temperature_zone": "ambient",
+      "hazard_classes_allowed": [
+        "none"
+      ],
+      "allowed_modes": [
+        "pedestrian",
+        "forklift"
+      ],
+      "level": 1,
+      "fixed": false
+    },
+    {
+      "location_id": "E14L",
+      "access_node_id": "E14",
+      "zone_id": "Z-PICK",
+      "location_type": "pick",
+      "capacity_volume_m3": 1.2,
+      "capacity_weight_kg": 250.0,
+      "max_unit_weight_kg": 25.0,
+      "temperature_zone": "ambient",
+      "hazard_classes_allowed": [
+        "none"
+      ],
+      "allowed_modes": [
+        "pedestrian",
+        "forklift"
+      ],
+      "level": 1,
+      "fixed": false
+    },
+    {
+      "location_id": "E14R",
+      "access_node_id": "E14",
+      "zone_id": "Z-PICK",
+      "location_type": "pick",
+      "capacity_volume_m3": 1.2,
+      "capacity_weight_kg": 250.0,
+      "max_unit_weight_kg": 25.0,
+      "temperature_zone": "ambient",
+      "hazard_classes_allowed": [
+        "none"
+      ],
+      "allowed_modes": [
+        "pedestrian",
+        "forklift"
+      ],
+      "level": 1,
+      "fixed": false
+    },
+    {
+      "location_id": "STAGING-IN",
+      "access_node_id": "RECV",
+      "zone_id": "Z-IN",
+      "location_type": "staging",
+      "capacity_volume_m3": 8.0,
+      "capacity_weight_kg": 2000.0,
+      "max_unit_weight_kg": 80.0,
+      "temperature_zone": "ambient",
+      "hazard_classes_allowed": [
+        "none"
+      ],
+      "allowed_modes": [
+        "pedestrian",
+        "forklift"
+      ],
+      "level": 0,
+      "fixed": true
+    },
+    {
+      "location_id": "STAGING-OUT",
+      "access_node_id": "PACK",
+      "zone_id": "Z-OUT",
+      "location_type": "staging",
+      "capacity_volume_m3": 6.0,
+      "capacity_weight_kg": 1500.0,
+      "max_unit_weight_kg": 80.0,
+      "temperature_zone": "ambient",
+      "hazard_classes_allowed": [
+        "none"
+      ],
+      "allowed_modes": [
+        "pedestrian",
+        "forklift"
+      ],
+      "level": 0,
+      "fixed": true
+    }
+  ],
+  "items": [
+    {
+      "sku": "SKU-FAST-01",
+      "description": "Fast-moving fastener kit",
+      "unit_volume_m3": 0.02,
+      "unit_weight_kg": 1.2,
+      "temperature_zone": "ambient",
+      "hazard_class": "none",
+      "handling_mode": "pedestrian",
+      "fixed_location": false
+    },
+    {
+      "sku": "SKU-FAST-02",
+      "description": "Fast-moving packing tape",
+      "unit_volume_m3": 0.03,
+      "unit_weight_kg": 0.8,
+      "temperature_zone": "ambient",
+      "hazard_class": "none",
+      "handling_mode": "pedestrian",
+      "fixed_location": false
+    },
+    {
+      "sku": "SKU-FAST-03",
+      "description": "Fast-moving label roll",
+      "unit_volume_m3": 0.02,
+      "unit_weight_kg": 0.6,
+      "temperature_zone": "ambient",
+      "hazard_class": "none",
+      "handling_mode": "pedestrian",
+      "fixed_location": false
+    },
+    {
+      "sku": "SKU-MID-01",
+      "description": "Medium-runner gasket",
+      "unit_volume_m3": 0.04,
+      "unit_weight_kg": 2.0,
+      "temperature_zone": "ambient",
+      "hazard_class": "none",
+      "handling_mode": "pedestrian",
+      "fixed_location": false
+    },
+    {
+      "sku": "SKU-MID-02",
+      "description": "Medium-runner clamp",
+      "unit_volume_m3": 0.05,
+      "unit_weight_kg": 2.4,
+      "temperature_zone": "ambient",
+      "hazard_class": "none",
+      "handling_mode": "pedestrian",
+      "fixed_location": false
+    },
+    {
+      "sku": "SKU-NEAR-01",
+      "description": "Near-pack carton insert",
+      "unit_volume_m3": 0.06,
+      "unit_weight_kg": 1.5,
+      "temperature_zone": "ambient",
+      "hazard_class": "none",
+      "handling_mode": "pedestrian",
+      "fixed_location": false
+    },
+    {
+      "sku": "SKU-NEAR-02",
+      "description": "Near-pack void fill",
+      "unit_volume_m3": 0.08,
+      "unit_weight_kg": 1.1,
+      "temperature_zone": "ambient",
+      "hazard_class": "none",
+      "handling_mode": "pedestrian",
+      "fixed_location": false
+    },
+    {
+      "sku": "SKU-MID-03",
+      "description": "Medium-runner hose",
+      "unit_volume_m3": 0.07,
+      "unit_weight_kg": 3.2,
+      "temperature_zone": "ambient",
+      "hazard_class": "none",
+      "handling_mode": "pedestrian",
+      "fixed_location": false
+    },
+    {
+      "sku": "SKU-MID-04",
+      "description": "Medium-runner elbow",
+      "unit_volume_m3": 0.04,
+      "unit_weight_kg": 1.8,
+      "temperature_zone": "ambient",
+      "hazard_class": "none",
+      "handling_mode": "pedestrian",
+      "fixed_location": false
+    },
+    {
+      "sku": "SKU-SLOW-01",
+      "description": "Slow-mover spare cover",
+      "unit_volume_m3": 0.09,
+      "unit_weight_kg": 4.0,
+      "temperature_zone": "ambient",
+      "hazard_class": "none",
+      "handling_mode": "pedestrian",
+      "fixed_location": false
+    },
+    {
+      "sku": "SKU-CHILL-01",
+      "description": "Chilled sample pack",
+      "unit_volume_m3": 0.03,
+      "unit_weight_kg": 1.0,
+      "temperature_zone": "chilled",
+      "hazard_class": "none",
+      "handling_mode": "pedestrian",
+      "fixed_location": false
+    },
+    {
+      "sku": "SKU-HEAVY-01",
+      "description": "Heavy cast housing",
+      "unit_volume_m3": 0.18,
+      "unit_weight_kg": 42.0,
+      "temperature_zone": "ambient",
+      "hazard_class": "none",
+      "handling_mode": "forklift",
+      "fixed_location": false
+    },
+    {
+      "sku": "SKU-FIXED-01",
+      "description": "Pinned safety stock",
+      "unit_volume_m3": 0.05,
+      "unit_weight_kg": 2.2,
+      "temperature_zone": "ambient",
+      "hazard_class": "none",
+      "handling_mode": "pedestrian",
+      "fixed_location": true
+    },
+    {
+      "sku": "SKU-EAST-01",
+      "description": "East-aisle consumable",
+      "unit_volume_m3": 0.03,
+      "unit_weight_kg": 0.9,
+      "temperature_zone": "ambient",
+      "hazard_class": "none",
+      "handling_mode": "pedestrian",
+      "fixed_location": false
+    }
+  ],
+  "assignments": [
+    {
+      "sku": "SKU-FAST-01",
+      "location_id": "A30L",
+      "role": "pick",
+      "current_units": 20,
+      "max_units": 80
+    },
+    {
+      "sku": "SKU-FAST-02",
+      "location_id": "E30R",
+      "role": "pick",
+      "current_units": 20,
+      "max_units": 80
+    },
+    {
+      "sku": "SKU-FAST-03",
+      "location_id": "A14L",
+      "role": "pick",
+      "current_units": 20,
+      "max_units": 80
+    },
+    {
+      "sku": "SKU-MID-01",
+      "location_id": "B22L",
+      "role": "pick",
+      "current_units": 20,
+      "max_units": 80
+    },
+    {
+      "sku": "SKU-MID-02",
+      "location_id": "B22R",
+      "role": "pick",
+      "current_units": 20,
+      "max_units": 80
+    },
+    {
+      "sku": "SKU-NEAR-01",
+      "location_id": "C14L",
+      "role": "pick",
+      "current_units": 20,
+      "max_units": 80
+    },
+    {
+      "sku": "SKU-NEAR-02",
+      "location_id": "D14R",
+      "role": "pick",
+      "current_units": 20,
+      "max_units": 80
+    },
+    {
+      "sku": "SKU-MID-03",
+      "location_id": "C22L",
+      "role": "pick",
+      "current_units": 20,
+      "max_units": 80
+    },
+    {
+      "sku": "SKU-MID-04",
+      "location_id": "D22L",
+      "role": "pick",
+      "current_units": 20,
+      "max_units": 80
+    },
+    {
+      "sku": "SKU-SLOW-01",
+      "location_id": "C30R",
+      "role": "pick",
+      "current_units": 20,
+      "max_units": 80
+    },
+    {
+      "sku": "SKU-CHILL-01",
+      "location_id": "E30L",
+      "role": "pick",
+      "current_units": 20,
+      "max_units": 80
+    },
+    {
+      "sku": "SKU-HEAVY-01",
+      "location_id": "A22R",
+      "role": "pick",
+      "current_units": 20,
+      "max_units": 80
+    },
+    {
+      "sku": "SKU-FIXED-01",
+      "location_id": "B14L",
+      "role": "pick",
+      "current_units": 20,
+      "max_units": 80
+    },
+    {
+      "sku": "SKU-EAST-01",
+      "location_id": "E14R",
+      "role": "pick",
+      "current_units": 20,
+      "max_units": 80
+    }
+  ],
+  "picks": [
+    {
+      "pick_id": "PICK-0001",
+      "order_id": "ORD-2001",
+      "pick_sequence": 1,
+      "timestamp": "2026-04-02T08:07:00+02:00",
+      "sku": "SKU-FAST-01",
+      "location_id": "A30L",
+      "quantity": 2.0,
+      "mode": "pedestrian"
+    },
+    {
+      "pick_id": "PICK-0002",
+      "order_id": "ORD-2001",
+      "pick_sequence": 2,
+      "timestamp": "2026-04-02T08:14:00+02:00",
+      "sku": "SKU-FAST-02",
+      "location_id": "E30R",
+      "quantity": 3.0,
+      "mode": "pedestrian"
+    },
+    {
+      "pick_id": "PICK-0003",
+      "order_id": "ORD-2001",
+      "pick_sequence": 3,
+      "timestamp": "2026-04-02T08:21:00+02:00",
+      "sku": "SKU-NEAR-02",
+      "location_id": "D14R",
+      "quantity": 1.0,
+      "mode": "pedestrian"
+    },
+    {
+      "pick_id": "PICK-0004",
+      "order_id": "ORD-2002",
+      "pick_sequence": 1,
+      "timestamp": "2026-04-03T09:07:00+02:00",
+      "sku": "SKU-FAST-01",
+      "location_id": "A30L",
+      "quantity": 2.0,
+      "mode": "pedestrian"
+    },
+    {
+      "pick_id": "PICK-0005",
+      "order_id": "ORD-2002",
+      "pick_sequence": 2,
+      "timestamp": "2026-04-03T09:14:00+02:00",
+      "sku": "SKU-EAST-01",
+      "location_id": "E14R",
+      "quantity": 3.0,
+      "mode": "pedestrian"
+    },
+    {
+      "pick_id": "PICK-0006",
+      "order_id": "ORD-2002",
+      "pick_sequence": 3,
+      "timestamp": "2026-04-03T09:21:00+02:00",
+      "sku": "SKU-NEAR-02",
+      "location_id": "D14R",
+      "quantity": 1.0,
+      "mode": "pedestrian"
+    },
+    {
+      "pick_id": "PICK-0007",
+      "order_id": "ORD-2003",
+      "pick_sequence": 1,
+      "timestamp": "2026-04-04T10:07:00+02:00",
+      "sku": "SKU-FAST-02",
+      "location_id": "E30R",
+      "quantity": 2.0,
+      "mode": "pedestrian"
+    },
+    {
+      "pick_id": "PICK-0008",
+      "order_id": "ORD-2003",
+      "pick_sequence": 2,
+      "timestamp": "2026-04-04T10:14:00+02:00",
+      "sku": "SKU-FAST-03",
+      "location_id": "A14L",
+      "quantity": 3.0,
+      "mode": "pedestrian"
+    },
+    {
+      "pick_id": "PICK-0009",
+      "order_id": "ORD-2003",
+      "pick_sequence": 3,
+      "timestamp": "2026-04-04T10:21:00+02:00",
+      "sku": "SKU-NEAR-01",
+      "location_id": "C14L",
+      "quantity": 1.0,
+      "mode": "pedestrian"
+    },
+    {
+      "pick_id": "PICK-0010",
+      "order_id": "ORD-2004",
+      "pick_sequence": 1,
+      "timestamp": "2026-04-05T11:07:00+02:00",
+      "sku": "SKU-FAST-01",
+      "location_id": "A30L",
+      "quantity": 2.0,
+      "mode": "pedestrian"
+    },
+    {
+      "pick_id": "PICK-0011",
+      "order_id": "ORD-2004",
+      "pick_sequence": 2,
+      "timestamp": "2026-04-05T11:14:00+02:00",
+      "sku": "SKU-FAST-02",
+      "location_id": "E30R",
+      "quantity": 3.0,
+      "mode": "pedestrian"
+    },
+    {
+      "pick_id": "PICK-0012",
+      "order_id": "ORD-2004",
+      "pick_sequence": 3,
+      "timestamp": "2026-04-05T11:21:00+02:00",
+      "sku": "SKU-NEAR-01",
+      "location_id": "C14L",
+      "quantity": 1.0,
+      "mode": "pedestrian"
+    },
+    {
+      "pick_id": "PICK-0013",
+      "order_id": "ORD-2005",
+      "pick_sequence": 1,
+      "timestamp": "2026-04-06T12:07:00+02:00",
+      "sku": "SKU-MID-01",
+      "location_id": "B22L",
+      "quantity": 2.0,
+      "mode": "pedestrian"
+    },
+    {
+      "pick_id": "PICK-0014",
+      "order_id": "ORD-2005",
+      "pick_sequence": 2,
+      "timestamp": "2026-04-06T12:14:00+02:00",
+      "sku": "SKU-MID-02",
+      "location_id": "B22R",
+      "quantity": 3.0,
+      "mode": "pedestrian"
+    },
+    {
+      "pick_id": "PICK-0015",
+      "order_id": "ORD-2005",
+      "pick_sequence": 3,
+      "timestamp": "2026-04-06T12:21:00+02:00",
+      "sku": "SKU-NEAR-02",
+      "location_id": "D14R",
+      "quantity": 1.0,
+      "mode": "pedestrian"
+    },
+    {
+      "pick_id": "PICK-0016",
+      "order_id": "ORD-2006",
+      "pick_sequence": 1,
+      "timestamp": "2026-04-07T08:07:00+02:00",
+      "sku": "SKU-NEAR-01",
+      "location_id": "C14L",
+      "quantity": 2.0,
+      "mode": "pedestrian"
+    },
+    {
+      "pick_id": "PICK-0017",
+      "order_id": "ORD-2006",
+      "pick_sequence": 2,
+      "timestamp": "2026-04-07T08:14:00+02:00",
+      "sku": "SKU-NEAR-02",
+      "location_id": "D14R",
+      "quantity": 3.0,
+      "mode": "pedestrian"
+    },
+    {
+      "pick_id": "PICK-0018",
+      "order_id": "ORD-2007",
+      "pick_sequence": 1,
+      "timestamp": "2026-04-08T09:07:00+02:00",
+      "sku": "SKU-FAST-01",
+      "location_id": "A30L",
+      "quantity": 2.0,
+      "mode": "pedestrian"
+    },
+    {
+      "pick_id": "PICK-0019",
+      "order_id": "ORD-2007",
+      "pick_sequence": 2,
+      "timestamp": "2026-04-08T09:14:00+02:00",
+      "sku": "SKU-MID-01",
+      "location_id": "B22L",
+      "quantity": 3.0,
+      "mode": "pedestrian"
+    },
+    {
+      "pick_id": "PICK-0020",
+      "order_id": "ORD-2007",
+      "pick_sequence": 3,
+      "timestamp": "2026-04-08T09:21:00+02:00",
+      "sku": "SKU-EAST-01",
+      "location_id": "E14R",
+      "quantity": 1.0,
+      "mode": "pedestrian"
+    },
+    {
+      "pick_id": "PICK-0021",
+      "order_id": "ORD-2007",
+      "pick_sequence": 4,
+      "timestamp": "2026-04-08T09:28:00+02:00",
+      "sku": "SKU-NEAR-02",
+      "location_id": "D14R",
+      "quantity": 2.0,
+      "mode": "pedestrian"
+    },
+    {
+      "pick_id": "PICK-0022",
+      "order_id": "ORD-2008",
+      "pick_sequence": 1,
+      "timestamp": "2026-04-02T10:07:00+02:00",
+      "sku": "SKU-FAST-02",
+      "location_id": "E30R",
+      "quantity": 2.0,
+      "mode": "pedestrian"
+    },
+    {
+      "pick_id": "PICK-0023",
+      "order_id": "ORD-2008",
+      "pick_sequence": 2,
+      "timestamp": "2026-04-02T10:14:00+02:00",
+      "sku": "SKU-MID-04",
+      "location_id": "D22L",
+      "quantity": 3.0,
+      "mode": "pedestrian"
+    },
+    {
+      "pick_id": "PICK-0024",
+      "order_id": "ORD-2008",
+      "pick_sequence": 3,
+      "timestamp": "2026-04-02T10:21:00+02:00",
+      "sku": "SKU-NEAR-02",
+      "location_id": "D14R",
+      "quantity": 1.0,
+      "mode": "pedestrian"
+    },
+    {
+      "pick_id": "PICK-0025",
+      "order_id": "ORD-2009",
+      "pick_sequence": 1,
+      "timestamp": "2026-04-03T11:07:00+02:00",
+      "sku": "SKU-FAST-01",
+      "location_id": "A30L",
+      "quantity": 2.0,
+      "mode": "pedestrian"
+    },
+    {
+      "pick_id": "PICK-0026",
+      "order_id": "ORD-2009",
+      "pick_sequence": 2,
+      "timestamp": "2026-04-03T11:14:00+02:00",
+      "sku": "SKU-MID-03",
+      "location_id": "C22L",
+      "quantity": 3.0,
+      "mode": "pedestrian"
+    },
+    {
+      "pick_id": "PICK-0027",
+      "order_id": "ORD-2009",
+      "pick_sequence": 3,
+      "timestamp": "2026-04-03T11:21:00+02:00",
+      "sku": "SKU-EAST-01",
+      "location_id": "E14R",
+      "quantity": 1.0,
+      "mode": "pedestrian"
+    },
+    {
+      "pick_id": "PICK-0028",
+      "order_id": "ORD-2010",
+      "pick_sequence": 1,
+      "timestamp": "2026-04-04T12:07:00+02:00",
+      "sku": "SKU-MID-01",
+      "location_id": "B22L",
+      "quantity": 2.0,
+      "mode": "pedestrian"
+    },
+    {
+      "pick_id": "PICK-0029",
+      "order_id": "ORD-2010",
+      "pick_sequence": 2,
+      "timestamp": "2026-04-04T12:14:00+02:00",
+      "sku": "SKU-NEAR-02",
+      "location_id": "D14R",
+      "quantity": 3.0,
+      "mode": "pedestrian"
+    },
+    {
+      "pick_id": "PICK-0030",
+      "order_id": "ORD-2011",
+      "pick_sequence": 1,
+      "timestamp": "2026-04-05T08:07:00+02:00",
+      "sku": "SKU-FAST-01",
+      "location_id": "A30L",
+      "quantity": 2.0,
+      "mode": "pedestrian"
+    },
+    {
+      "pick_id": "PICK-0031",
+      "order_id": "ORD-2011",
+      "pick_sequence": 2,
+      "timestamp": "2026-04-05T08:14:00+02:00",
+      "sku": "SKU-FAST-02",
+      "location_id": "E30R",
+      "quantity": 3.0,
+      "mode": "pedestrian"
+    },
+    {
+      "pick_id": "PICK-0032",
+      "order_id": "ORD-2011",
+      "pick_sequence": 3,
+      "timestamp": "2026-04-05T08:21:00+02:00",
+      "sku": "SKU-MID-02",
+      "location_id": "B22R",
+      "quantity": 1.0,
+      "mode": "pedestrian"
+    },
+    {
+      "pick_id": "PICK-0033",
+      "order_id": "ORD-2011",
+      "pick_sequence": 4,
+      "timestamp": "2026-04-05T08:28:00+02:00",
+      "sku": "SKU-NEAR-02",
+      "location_id": "D14R",
+      "quantity": 2.0,
+      "mode": "pedestrian"
+    },
+    {
+      "pick_id": "PICK-0034",
+      "order_id": "ORD-2012",
+      "pick_sequence": 1,
+      "timestamp": "2026-04-06T09:07:00+02:00",
+      "sku": "SKU-NEAR-01",
+      "location_id": "C14L",
+      "quantity": 2.0,
+      "mode": "pedestrian"
+    },
+    {
+      "pick_id": "PICK-0035",
+      "order_id": "ORD-2012",
+      "pick_sequence": 2,
+      "timestamp": "2026-04-06T09:14:00+02:00",
+      "sku": "SKU-NEAR-02",
+      "location_id": "D14R",
+      "quantity": 3.0,
+      "mode": "pedestrian"
+    },
+    {
+      "pick_id": "PICK-0036",
+      "order_id": "ORD-2013",
+      "pick_sequence": 1,
+      "timestamp": "2026-04-07T10:07:00+02:00",
+      "sku": "SKU-FAST-03",
+      "location_id": "A14L",
+      "quantity": 2.0,
+      "mode": "pedestrian"
+    },
+    {
+      "pick_id": "PICK-0037",
+      "order_id": "ORD-2013",
+      "pick_sequence": 2,
+      "timestamp": "2026-04-07T10:14:00+02:00",
+      "sku": "SKU-EAST-01",
+      "location_id": "E14R",
+      "quantity": 3.0,
+      "mode": "pedestrian"
+    },
+    {
+      "pick_id": "PICK-0038",
+      "order_id": "ORD-2013",
+      "pick_sequence": 3,
+      "timestamp": "2026-04-07T10:21:00+02:00",
+      "sku": "SKU-NEAR-02",
+      "location_id": "D14R",
+      "quantity": 1.0,
+      "mode": "pedestrian"
+    },
+    {
+      "pick_id": "PICK-0039",
+      "order_id": "ORD-2014",
+      "pick_sequence": 1,
+      "timestamp": "2026-04-08T11:07:00+02:00",
+      "sku": "SKU-FAST-01",
+      "location_id": "A30L",
+      "quantity": 2.0,
+      "mode": "pedestrian"
+    },
+    {
+      "pick_id": "PICK-0040",
+      "order_id": "ORD-2014",
+      "pick_sequence": 2,
+      "timestamp": "2026-04-08T11:14:00+02:00",
+      "sku": "SKU-NEAR-02",
+      "location_id": "D14R",
+      "quantity": 3.0,
+      "mode": "pedestrian"
+    },
+    {
+      "pick_id": "PICK-0041",
+      "order_id": "ORD-2015",
+      "pick_sequence": 1,
+      "timestamp": "2026-04-02T12:07:00+02:00",
+      "sku": "SKU-FAST-02",
+      "location_id": "E30R",
+      "quantity": 2.0,
+      "mode": "pedestrian"
+    },
+    {
+      "pick_id": "PICK-0042",
+      "order_id": "ORD-2015",
+      "pick_sequence": 2,
+      "timestamp": "2026-04-02T12:14:00+02:00",
+      "sku": "SKU-NEAR-01",
+      "location_id": "C14L",
+      "quantity": 3.0,
+      "mode": "pedestrian"
+    },
+    {
+      "pick_id": "PICK-0043",
+      "order_id": "ORD-2015",
+      "pick_sequence": 3,
+      "timestamp": "2026-04-02T12:21:00+02:00",
+      "sku": "SKU-NEAR-02",
+      "location_id": "D14R",
+      "quantity": 1.0,
+      "mode": "pedestrian"
+    },
+    {
+      "pick_id": "PICK-0044",
+      "order_id": "ORD-2016",
+      "pick_sequence": 1,
+      "timestamp": "2026-04-03T08:07:00+02:00",
+      "sku": "SKU-MID-01",
+      "location_id": "B22L",
+      "quantity": 2.0,
+      "mode": "pedestrian"
+    },
+    {
+      "pick_id": "PICK-0045",
+      "order_id": "ORD-2016",
+      "pick_sequence": 2,
+      "timestamp": "2026-04-03T08:14:00+02:00",
+      "sku": "SKU-MID-03",
+      "location_id": "C22L",
+      "quantity": 3.0,
+      "mode": "pedestrian"
+    },
+    {
+      "pick_id": "PICK-0046",
+      "order_id": "ORD-2016",
+      "pick_sequence": 3,
+      "timestamp": "2026-04-03T08:21:00+02:00",
+      "sku": "SKU-EAST-01",
+      "location_id": "E14R",
+      "quantity": 1.0,
+      "mode": "pedestrian"
+    },
+    {
+      "pick_id": "PICK-0047",
+      "order_id": "ORD-2016",
+      "pick_sequence": 4,
+      "timestamp": "2026-04-03T08:28:00+02:00",
+      "sku": "SKU-NEAR-02",
+      "location_id": "D14R",
+      "quantity": 2.0,
+      "mode": "pedestrian"
+    },
+    {
+      "pick_id": "PICK-0048",
+      "order_id": "ORD-2017",
+      "pick_sequence": 1,
+      "timestamp": "2026-04-04T09:07:00+02:00",
+      "sku": "SKU-FAST-01",
+      "location_id": "A30L",
+      "quantity": 2.0,
+      "mode": "pedestrian"
+    },
+    {
+      "pick_id": "PICK-0049",
+      "order_id": "ORD-2017",
+      "pick_sequence": 2,
+      "timestamp": "2026-04-04T09:14:00+02:00",
+      "sku": "SKU-SLOW-01",
+      "location_id": "C30R",
+      "quantity": 3.0,
+      "mode": "pedestrian"
+    },
+    {
+      "pick_id": "PICK-0050",
+      "order_id": "ORD-2017",
+      "pick_sequence": 3,
+      "timestamp": "2026-04-04T09:21:00+02:00",
+      "sku": "SKU-NEAR-02",
+      "location_id": "D14R",
+      "quantity": 1.0,
+      "mode": "pedestrian"
+    },
+    {
+      "pick_id": "PICK-0051",
+      "order_id": "ORD-2018",
+      "pick_sequence": 1,
+      "timestamp": "2026-04-05T10:07:00+02:00",
+      "sku": "SKU-FAST-02",
+      "location_id": "E30R",
+      "quantity": 2.0,
+      "mode": "pedestrian"
+    },
+    {
+      "pick_id": "PICK-0052",
+      "order_id": "ORD-2018",
+      "pick_sequence": 2,
+      "timestamp": "2026-04-05T10:14:00+02:00",
+      "sku": "SKU-FAST-01",
+      "location_id": "A30L",
+      "quantity": 3.0,
+      "mode": "pedestrian"
+    },
+    {
+      "pick_id": "PICK-0053",
+      "order_id": "ORD-2018",
+      "pick_sequence": 3,
+      "timestamp": "2026-04-05T10:21:00+02:00",
+      "sku": "SKU-MID-04",
+      "location_id": "D22L",
+      "quantity": 1.0,
+      "mode": "pedestrian"
+    },
+    {
+      "pick_id": "PICK-0054",
+      "order_id": "ORD-2018",
+      "pick_sequence": 4,
+      "timestamp": "2026-04-05T10:28:00+02:00",
+      "sku": "SKU-NEAR-01",
+      "location_id": "C14L",
+      "quantity": 2.0,
+      "mode": "pedestrian"
+    }
+  ],
+  "config": {
+    "route_start_node": "RECV",
+    "route_end_node": "PACK",
+    "default_mode": "pedestrian",
+    "abc_basis": "pick_lines",
+    "abc_thresholds": {
+      "A": 0.8,
+      "B": 0.95
+    },
+    "xyz_time_bucket": "day",
+    "xyz_minimum_buckets": 7,
+    "xyz_thresholds": {
+      "X": 0.5,
+      "Y": 1.0
+    },
+    "minimum_improvement_percent": 1.0,
+    "maximum_recommendations": 10,
+    "maximum_candidate_swaps": 500,
+    "affinity_minimum_co_picks": 2,
+    "affinity_minimum_support": 0.05,
+    "restrict_swaps_to_same_zone": true,
+    "allow_level_change": false,
+    "spaghetti_top_orders": 8
+  }
+}

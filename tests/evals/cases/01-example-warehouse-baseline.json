@@ -1,0 +1,52 @@
+{
+  "case_id": "example-warehouse-baseline",
+  "category": "metrics",
+  "description": "The shipped fictional warehouse must keep producing exactly these flow metrics.",
+  "dataset_path": "../../../examples/fictional-small-warehouse/dataset.json",
+  "expected_status": "ok",
+  "expected_exit_code": 0,
+  "forbidden_issue_codes": [
+    "DISCONNECTED_ROUTE",
+    "MISSING_PICK_SEQUENCE",
+    "UNKNOWN_SKU"
+  ],
+  "expected_metrics": {
+    "total_valid_orders": {
+      "value": 15,
+      "tolerance": 0
+    },
+    "total_pick_lines": {
+      "value": 54,
+      "tolerance": 0
+    },
+    "total_distance_m": {
+      "value": 1560.0,
+      "tolerance": 0.001
+    },
+    "median_distance_per_order_m": {
+      "value": 100.0,
+      "tolerance": 0.001
+    },
+    "p90_distance_per_order_m": {
+      "value": 120.0,
+      "tolerance": 0.001
+    },
+    "average_distance_per_pick_m": {
+      "value": 28.889,
+      "tolerance": 0.01
+    },
+    "unreachable_order_count": {
+      "value": 0,
+      "tolerance": 0
+    }
+  },
+  "expected_claim_types": [
+    "observed",
+    "calculated",
+    "simulated"
+  ],
+  "expected_affinity": {
+    "pair": "SKU-1001|SKU-1002",
+    "co_pick_count": 8
+  }
+}

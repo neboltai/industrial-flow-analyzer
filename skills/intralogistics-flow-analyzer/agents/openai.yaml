@@ -1,0 +1,15 @@
+interface:
+  display_name: "Intralogistics Flow Analyzer"
+  short_description: "Evidence-based warehouse flow analysis"
+  brand_color: "#228B22"
+  default_prompt: "Use $intralogistics-flow-analyzer to validate and analyze the supplied warehouse dataset, or run the fictional demonstration dataset when no customer data is provided."
+
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "intralogistics-demo"
+      description: "Local demonstration server over the fictional datasets shipped with the Community Edition. Real exports are analysed with the ifa command line, not through this server."
+      transport: "stdio"
+
+policy:
+  allow_implicit_invocation: true

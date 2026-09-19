@@ -1,0 +1,13 @@
+node_id,x_meters,y_meters,node_type,zone
+N01,0.0,0.0,depot,Z-DOCK
+N02,10.0,0.0,junction,Z-MAIN
+N03,20.0,0.0,junction,Z-MAIN
+N04,30.0,0.0,junction,Z-MAIN
+N05,10.0,10.0,location_access,Z-A
+N06,10.0,20.0,location_access,Z-A
+N07,20.0,10.0,location_access,Z-B
+N08,20.0,20.0,location_access,Z-B
+N09,30.0,10.0,location_access,Z-C
+N10,30.0,20.0,location_access,Z-C
+N11,40.0,0.0,shipping,Z-DOCK
+N12,40.0,10.0,packing,Z-DOCK

@@ -1,0 +1,9 @@
+article_no,article_text,volume_m3,weight_kg,temperature_zone,hazard_class,handling,pinned
+SKU-1001,"Fastener pack, small",0.004,0.8,ambient,none,pedestrian,false
+SKU-1002,"Sealing ring, medium",0.003,0.4,ambient,none,pedestrian,false
+SKU-1003,"Label roll, standard",0.006,1.2,ambient,none,pedestrian,false
+SKU-1004,Cable tie bundle,0.005,0.9,ambient,none,pedestrian,false
+SKU-1005,"Solvent wipes, sealed pack",0.007,1.5,ambient,flammable,pedestrian,false
+SKU-1006,"Steel plate, heavy",0.02,45.0,ambient,none,forklift,false
+SKU-1007,"Chilled compound, tub",0.008,2.0,chilled,none,pedestrian,false
+SKU-1008,"Calibration kit, sealed",0.01,3.0,ambient,none,pedestrian,true

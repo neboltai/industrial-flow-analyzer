@@ -1,0 +1,22 @@
+name: Bug report
+description: Report a reproducible defect using fictional data only.
+body:
+  - type: textarea
+    id: environment
+    attributes:
+      label: Engine version, Python version and operating system
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Command and minimal fictional reproduction
+      description: Do not include customer data or credentials.
+    validations:
+      required: true
+  - type: textarea
+    id: result
+    attributes:
+      label: Expected and actual results
+    validations:
+      required: true

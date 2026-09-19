@@ -1,0 +1,106 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nebolt.ai/schemas/intralogistics-flow-analyzer/recommendations.schema.json",
+  "title": "Intralogistics slotting recommendations",
+  "description": "Output document of 'ifa recommend'. Every entry is an individually simulated, constraint-checked swap between two pick locations. The set is not a global optimum.",
+  "type": "object",
+  "required": ["schema_version", "engine_version", "recommendations", "thresholds", "method"],
+  "properties": {
+    "schema_version": { "type": "string", "const": "1.0" },
+    "engine_version": { "type": "string" },
+    "dataset_id": { "type": "string" },
+    "status": { "type": "string", "enum": ["ok", "partial", "insufficient_evidence", "data_error"] },
+    "generated_candidates": { "type": "integer", "minimum": 0 },
+    "evaluated_candidates": { "type": "integer", "minimum": 0 },
+    "method": { "type": "string" },
+    "thresholds": { "type": "object" },
+    "recommendations": { "type": "array", "items": { "$ref": "#/$defs/recommendation" } },
+    "rejected_candidates": { "type": "array", "items": { "$ref": "#/$defs/rejected" } }
+  },
+  "$defs": {
+    "constraint_status": { "type": "string", "enum": ["pass", "fail", "insufficient_data"] },
+    "constraint_checks": {
+      "type": "object",
+      "required": [
+        "volume",
+        "weight",
+        "unit_weight",
+        "temperature",
+        "hazard",
+        "handling_mode",
+        "zone",
+        "level",
+        "fixed"
+      ],
+      "additionalProperties": { "$ref": "#/$defs/constraint_status" }
+    },
+    "recommendation": {
+      "type": "object",
+      "required": [
+        "recommendation_id",
+        "type",
+        "sku_a",
+        "from_a",
+        "to_a",
+        "sku_b",
+        "from_b",
+        "to_b",
+        "baseline_distance_m",
+        "simulated_distance_m",
+        "estimated_reduction_m",
+        "estimated_reduction_percent",
+        "affected_orders",
+        "constraint_checks",
+        "assumptions",
+        "limitations"
+      ],
+      "properties": {
+        "recommendation_id": { "type": "string", "pattern": "^SWAP-[0-9]{3}$" },
+        "type": { "type": "string", "const": "pair_swap" },
+        "sku_a": { "type": "string" },
+        "from_a": { "type": "string" },
+        "to_a": { "type": "string" },
+        "sku_b": { "type": "string" },
+        "from_b": { "type": "string" },
+        "to_b": { "type": "string" },
+        "baseline_distance_m": { "type": "number", "minimum": 0 },
+        "simulated_distance_m": { "type": "number", "minimum": 0 },
+        "estimated_reduction_m": { "type": "number" },
+        "estimated_reduction_percent": { "type": ["number", "null"] },
+        "affected_orders": { "type": "integer", "minimum": 0 },
+        "affected_order_ids": { "type": "array", "items": { "type": "string" } },
+        "constraint_checks": { "$ref": "#/$defs/constraint_checks" },
+        "constraint_reasons": { "type": "object" },
+        "assumptions": { "type": "array", "items": { "type": "string" } },
+        "limitations": { "type": "array", "items": { "type": "string" } },
+        "measure": {
+          "type": "string",
+          "const": "estimated pick-distance reduction",
+          "description": "The engine never reports a guaranteed or realised saving."
+        },
+        "status": { "type": "string", "const": "accepted" }
+      }
+    },
+    "rejected": {
+      "type": "object",
+      "required": ["sku_a", "sku_b", "status", "constraint_checks"],
+      "properties": {
+        "sku_a": { "type": "string" },
+        "sku_b": { "type": "string" },
+        "status": {
+          "type": "string",
+          "enum": [
+            "constraint_violation",
+            "insufficient_constraint_data",
+            "no_material_improvement",
+            "superseded_by_higher_ranked_swap",
+            "beyond_maximum_recommendations"
+          ]
+        },
+        "rejected_because": { "type": "array", "items": { "type": "string" } },
+        "constraint_checks": { "$ref": "#/$defs/constraint_checks" },
+        "constraint_reasons": { "type": "object" }
+      }
+    }
+  }
+}

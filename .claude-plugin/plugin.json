@@ -1,0 +1,28 @@
+{
+  "name": "intralogistics-flow-analyzer",
+  "version": "0.1.2",
+  "description": "Community Edition for deterministic warehouse-flow analysis, spaghetti diagrams and constraint-safe slotting simulations.",
+  "author": {
+    "name": "Sylvain Gerbe",
+    "url": "https://nebolt.ai"
+  },
+  "homepage": "https://nebolt.ai/flow-analyzer/",
+  "repository": "https://github.com/neboltai/industrial-flow-analyzer",
+  "license": "MIT",
+  "keywords": [
+    "intralogistics",
+    "warehouse",
+    "slotting",
+    "spaghetti-diagram",
+    "lean",
+    "material-flow"
+  ],
+  "mcpServers": {
+    "intralogistics-demo": {
+      "command": "python3",
+      "args": [
+        "${CLAUDE_PLUGIN_ROOT}/mcp/server.py"
+      ]
+    }
+  }
+}

@@ -1,0 +1,127 @@
+{
+  "mapping_version": "1.0",
+  "description": "Explicit mapping from the fictional-small-warehouse CSV exports to the canonical dataset. Every column, unit and default is declared here; the normalizer guesses nothing.",
+  "meta": {
+    "dataset_id": "fictional-small-warehouse",
+    "site_id": "SITE-FICTIONAL-01",
+    "period_start": "2026-03-02T00:00:00+01:00",
+    "period_end": "2026-03-09T23:59:59+01:00",
+    "distance_unit": "m",
+    "time_zone": "Europe/Berlin",
+    "source": "Fictional export generated for the Community Edition regression suite",
+    "fictional": true,
+    "sequence_basis": "scan_confirmed",
+    "distance_basis": "declared_graph_shortest_path"
+  },
+  "config": {
+    "route_start_node": "N01",
+    "route_end_node": "N01",
+    "default_mode": "pedestrian",
+    "abc_basis": "pick_lines",
+    "abc_thresholds": {
+      "A": 0.8,
+      "B": 0.95
+    },
+    "xyz_time_bucket": "day",
+    "xyz_minimum_buckets": 7,
+    "xyz_thresholds": {
+      "X": 0.5,
+      "Y": 1.0
+    },
+    "minimum_improvement_percent": 1.0,
+    "maximum_recommendations": 10,
+    "maximum_candidate_swaps": 500,
+    "affinity_minimum_co_picks": 2,
+    "affinity_minimum_support": 0.05,
+    "restrict_swaps_to_same_zone": false,
+    "allow_level_change": false,
+    "spaghetti_top_orders": 8
+  },
+  "blocks": {
+    "nodes": {
+      "file": "nodes.csv",
+      "columns": {
+        "node_id": { "source": "node_id", "transforms": ["strip"] },
+        "x_m": { "source": "x_meters", "unit": "m", "transforms": ["decimal_comma_to_point"] },
+        "y_m": { "source": "y_meters", "unit": "m", "transforms": ["decimal_comma_to_point"] },
+        "node_type": { "source": "node_type", "transforms": ["lower"] },
+        "zone_id": { "source": "zone", "transforms": ["strip"] }
+      },
+      "defaults": {}
+    },
+    "edges": {
+      "file": "edges.csv",
+      "columns": {
+        "edge_id": { "source": "edge_id", "transforms": ["strip"] },
+        "from_node": { "source": "node_from", "transforms": ["strip"] },
+        "to_node": { "source": "node_to", "transforms": ["strip"] },
+        "distance_m": { "source": "length_meters", "unit": "m", "transforms": ["decimal_comma_to_point"] },
+        "bidirectional": { "source": "two_way", "transforms": ["lower"] },
+        "allowed_modes": { "source": "modes", "transforms": ["lower"] }
+      },
+      "defaults": {}
+    },
+    "locations": {
+      "file": "locations.csv",
+      "columns": {
+        "location_id": { "source": "bin_code", "transforms": ["strip"] },
+        "access_node_id": { "source": "access_node", "transforms": ["strip"] },
+        "zone_id": { "source": "zone", "transforms": ["strip"] },
+        "location_type": { "source": "bin_type", "transforms": ["lower"] },
+        "capacity_volume_m3": { "source": "volume_m3", "unit": "m3", "transforms": ["decimal_comma_to_point"] },
+        "capacity_weight_kg": { "source": "weight_capacity_kg", "unit": "kg", "transforms": ["decimal_comma_to_point"] },
+        "max_unit_weight_kg": { "source": "max_unit_weight_kg", "unit": "kg", "transforms": ["decimal_comma_to_point"] },
+        "temperature_zone": { "source": "temperature_zone", "transforms": ["lower"] },
+        "hazard_classes_allowed": { "source": "hazard_allowed", "transforms": ["lower"] },
+        "allowed_modes": { "source": "modes", "transforms": ["lower"] },
+        "level": { "source": "rack_level", "transforms": ["strip"] },
+        "fixed": { "source": "is_fixed", "transforms": ["lower"] }
+      },
+      "defaults": {}
+    },
+    "items": {
+      "file": "items.csv",
+      "columns": {
+        "sku": { "source": "article_no", "transforms": ["strip"] },
+        "description": { "source": "article_text", "transforms": ["strip"] },
+        "unit_volume_m3": { "source": "volume_m3", "unit": "m3", "transforms": ["decimal_comma_to_point"] },
+        "unit_weight_kg": { "source": "weight_kg", "unit": "kg", "transforms": ["decimal_comma_to_point"] },
+        "temperature_zone": { "source": "temperature_zone", "transforms": ["lower"] },
+        "hazard_class": { "source": "hazard_class", "transforms": ["lower"] },
+        "handling_mode": { "source": "handling", "transforms": ["lower"] },
+        "fixed_location": { "source": "pinned", "transforms": ["lower"] }
+      },
+      "defaults": {}
+    },
+    "assignments": {
+      "file": "assignments.csv",
+      "columns": {
+        "sku": { "source": "article_no", "transforms": ["strip"] },
+        "location_id": { "source": "bin_code", "transforms": ["strip"] },
+        "role": { "source": "assignment_role", "transforms": ["lower"] },
+        "current_units": { "source": "units_on_hand", "transforms": ["strip"] },
+        "max_units": { "source": "units_max", "transforms": ["strip"] }
+      },
+      "defaults": {}
+    },
+    "picks": {
+      "file": "picks.csv",
+      "columns": {
+        "pick_id": { "source": "pick_ref", "transforms": ["strip"] },
+        "order_id": { "source": "order_ref", "transforms": ["strip"] },
+        "pick_sequence": { "source": "sequence_no", "transforms": ["strip"] },
+        "timestamp": { "source": "picked_at", "transforms": ["strip"] },
+        "sku": { "source": "article_no", "transforms": ["strip"] },
+        "location_id": { "source": "bin_code", "transforms": ["strip"] },
+        "quantity": { "source": "qty", "transforms": ["decimal_comma_to_point"] },
+        "mode": { "source": "travel_mode", "transforms": ["lower"] }
+      },
+      "defaults": {}
+    }
+  },
+  "notes": [
+    "picks.csv carries a picker_name column. It is not mapped, is dropped by the normalizer and never reaches the canonical dataset or any report.",
+    "Every physical quantity declares its unit. The normalizer refuses to convert a quantity whose unit is not declared.",
+    "route_start_node and route_end_node are both N01: in this fictional site a picking tour starts and ends at the dock."
+  ]
+}

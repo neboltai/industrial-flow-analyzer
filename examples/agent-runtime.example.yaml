@@ -1,0 +1,78 @@
+# Example, unofficial agent runtime configuration.
+#
+# This file is NOT the plugin manifest and NOT the OpenAI agent descriptor.
+# The official descriptor lives at
+# skills/intralogistics-flow-analyzer/agents/openai.yaml.
+#
+# It documents how someone might wire the Community Edition into a model
+# runtime of their choice. It is a starting point to copy and adapt, nothing
+# that the project supports as a product surface.
+#
+# NOTE
+# The deterministic engine is provider-independent. Agent and tool-calling
+# compatibility depends on the selected runtime and is not guaranteed for every
+# provider/model combination.
+#
+# Only environment variable NAMES appear below. Never commit a real key.
+
+runtime:
+  name: "intralogistics-flow-analyzer-agent"
+  version: "0.1.1"
+  description: "Example wiring of the Community Edition into a model runtime."
+
+skill:
+  path: "./skills/intralogistics-flow-analyzer"
+  entry: "SKILL.md"
+
+engine:
+  command: "python3"
+  args: ["-m", "intralogistics_flow_analyzer"]
+  working_directory: "."
+  notes:
+    - "The engine is deterministic and needs no model to compute a number."
+    - "The model chooses what to run and how to phrase it; it never invents a figure."
+
+tools:
+  - name: "intralogistics-demo"
+    type: "mcp"
+    transport: "stdio"
+    command: "python3"
+    args: ["./mcp/server.py"]
+    description: "Local, read-only demonstration server over fictional datasets."
+
+# Potential providers. Pick one; the list is illustrative, not a compatibility
+# matrix and not an endorsement.
+providers:
+  - id: "openai"
+    api_key_env: "OPENAI_API_KEY"
+    base_url_env: "OPENAI_BASE_URL"
+    model_env: "OPENAI_MODEL"
+  - id: "anthropic"
+    api_key_env: "ANTHROPIC_API_KEY"
+    base_url_env: "ANTHROPIC_BASE_URL"
+    model_env: "ANTHROPIC_MODEL"
+  - id: "groq"
+    api_key_env: "GROQ_API_KEY"
+    base_url_env: "GROQ_BASE_URL"
+    model_env: "GROQ_MODEL"
+  - id: "deepseek"
+    api_key_env: "DEEPSEEK_API_KEY"
+    base_url_env: "DEEPSEEK_BASE_URL"
+    model_env: "DEEPSEEK_MODEL"
+  - id: "ollama"
+    api_key_env: "OLLAMA_API_KEY"
+    base_url_env: "OLLAMA_BASE_URL"
+    model_env: "OLLAMA_MODEL"
+    notes: "Local or self-hosted. Tool-calling quality varies widely by model."
+
+policy:
+  allow_implicit_invocation: true
+  refuse_without_mapping: true
+  refuse_on_data_error: true
+  never_write_to_external_systems: true
+  never_process_individual_worker_data: true
+
+disclaimer: >
+  The deterministic engine is provider-independent. Agent and tool-calling
+  compatibility depends on the selected runtime and is not guaranteed for every
+  provider/model combination.

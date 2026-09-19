@@ -1,0 +1,71 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "intralogistics-flow-analyzer"
+version = "0.1.2"
+description = "Community Edition for deterministic warehouse-flow analysis, spaghetti diagrams and constraint-safe slotting simulations."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Sylvain Gerbe" }]
+maintainers = [{ name = "Sylvain Gerbe" }]
+keywords = [
+    "intralogistics",
+    "warehouse",
+    "slotting",
+    "spaghetti-diagram",
+    "lean",
+    "material-flow",
+    "picking",
+    "abc-analysis",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Manufacturing",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Topic :: Scientific/Engineering :: Information Analysis",
+]
+# The deterministic engine deliberately uses the Python standard library only.
+dependencies = []
+
+[project.optional-dependencies]
+# Contract validation and the protocol interoperability test. Never needed to
+# compute a number: the engine itself has no runtime dependency.
+dev = [
+    "jsonschema>=4,<5",
+    "PyYAML>=6,<7",
+]
+# The official MCP SDK, used only by the interoperability test so the demo
+# server is exercised by a client this project did not write. Pinned to the 2.x
+# line because that is the line whose protocol-version registry matches the two
+# eras mcp/server.py implements: handshake 2024-11-05 .. 2025-11-25 and modern
+# 2026-07-28.
+mcp = [
+    "mcp>=2.2,<3",
+]
+
+[project.urls]
+Homepage = "https://nebolt.ai/flow-analyzer/"
+Repository = "https://github.com/neboltai/industrial-flow-analyzer"
+Issues = "https://github.com/neboltai/industrial-flow-analyzer/issues"
+
+[project.scripts]
+ifa = "intralogistics_flow_analyzer.cli:main"
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+intralogistics_flow_analyzer = ["py.typed"]

@@ -1,0 +1,46 @@
+{
+  "dataset_id": "fictional-aisle-warehouse",
+  "sequence_basis": "planned",
+  "distance_basis": "declared_graph_shortest_path",
+  "orders_reconstructed": 18,
+  "pick_lines": 54,
+  "total_distance_m": 2298.0,
+  "median_distance_per_order_m": 137.0,
+  "p90_distance_per_order_m": 171.8,
+  "routes_drawn": 8,
+  "routes_drawn_order_ids": [
+    "ORD-2011",
+    "ORD-2018",
+    "ORD-2004",
+    "ORD-2003",
+    "ORD-2007",
+    "ORD-2016",
+    "ORD-2001",
+    "ORD-2009"
+  ],
+  "routes_drawn_distances_m": [
+    197.0,
+    197.0,
+    161.0,
+    157.0,
+    153.0,
+    145.0,
+    141.0,
+    141.0
+  ],
+  "decorative_overlay": [
+    "racks",
+    "walls",
+    "dock doors",
+    "office",
+    "zone labels"
+  ],
+  "calculated": [
+    "order routes",
+    "edge lengths",
+    "order distances",
+    "start and end nodes"
+  ],
+  "command": "python examples/fictional-aisle-warehouse/build_example.py",
+  "engine_analyze": "ifa analyze --dataset examples/fictional-aisle-warehouse/dataset.json --output build/aisle-warehouse --spaghetti-top 8"
+}

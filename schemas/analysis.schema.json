@@ -1,0 +1,153 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nebolt.ai/schemas/intralogistics-flow-analyzer/analysis.schema.json",
+  "title": "Intralogistics analysis result",
+  "description": "Output document of 'ifa analyze'. Facts, calculations, simulations and hypotheses are separated by the claim_type of every finding.",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "engine_version",
+    "status",
+    "meta",
+    "issues",
+    "data_quality",
+    "metrics",
+    "edge_flows",
+    "location_metrics",
+    "sku_metrics",
+    "abc",
+    "xyz",
+    "affinities",
+    "recommendations",
+    "findings",
+    "thresholds",
+    "limitations"
+  ],
+  "properties": {
+    "schema_version": { "type": "string", "const": "1.0" },
+    "engine_version": { "type": "string" },
+    "status": {
+      "type": "string",
+      "enum": ["ok", "partial", "insufficient_evidence", "data_error"]
+    },
+    "meta": { "type": "object" },
+    "issues": { "type": "array", "items": { "$ref": "#/$defs/issue" } },
+    "data_quality": { "type": "object" },
+    "metrics": {
+      "type": "object",
+      "required": [
+        "total_valid_orders",
+        "total_pick_lines",
+        "total_units",
+        "total_distance_m",
+        "average_distance_per_order_m",
+        "median_distance_per_order_m",
+        "p90_distance_per_order_m",
+        "average_distance_per_pick_m",
+        "zone_transitions",
+        "unreachable_order_count"
+      ]
+    },
+    "edge_flows": { "type": "array", "items": { "type": "object" } },
+    "zone_flows": { "type": "array", "items": { "type": "object" } },
+    "location_metrics": { "type": "array", "items": { "type": "object" } },
+    "sku_metrics": { "type": "array", "items": { "type": "object" } },
+    "abc": { "type": "array", "items": { "type": "object" } },
+    "xyz": { "type": "array", "items": { "type": "object" } },
+    "xyz_marker": {
+      "type": ["string", "null"],
+      "enum": ["XYZ_NOT_COMPUTED_INSUFFICIENT_PERIODS", null]
+    },
+    "combined_classes": { "type": "object" },
+    "affinities": { "type": "array", "items": { "$ref": "#/$defs/affinity" } },
+    "recommendations": { "type": "array", "items": { "type": "object" } },
+    "rejected_candidates": { "type": "array", "items": { "type": "object" } },
+    "top_orders_by_distance": { "type": "array", "items": { "type": "object" } },
+    "top_locations_by_distance": { "type": "array", "items": { "type": "object" } },
+    "routes": { "type": "array", "items": { "type": "object" } },
+    "findings": { "type": "array", "items": { "$ref": "#/$defs/finding" } },
+    "thresholds": { "type": "object" },
+    "limitations": { "type": "array", "items": { "type": "string" } },
+    "evidence_rules": { "type": "array", "items": { "type": "string" } },
+    "slotting_method": { "type": "string" }
+  },
+  "$defs": {
+    "issue": {
+      "type": "object",
+      "required": ["code", "severity", "field", "message", "affected_records"],
+      "properties": {
+        "code": { "type": "string" },
+        "severity": { "type": "string", "enum": ["error", "warning", "info"] },
+        "field": { "type": "string" },
+        "message": { "type": "string" },
+        "affected_records": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "affinity": {
+      "type": "object",
+      "required": ["sku_a", "sku_b", "co_pick_count", "support"],
+      "properties": {
+        "sku_a": { "type": "string" },
+        "sku_b": { "type": "string" },
+        "co_pick_count": { "type": "integer", "minimum": 0 },
+        "support": { "type": "number", "minimum": 0, "maximum": 1 },
+        "confidence_a_to_b": { "type": ["number", "null"] },
+        "confidence_b_to_a": { "type": ["number", "null"] },
+        "lift": { "type": ["number", "null"] }
+      }
+    },
+    "finding": {
+      "type": "object",
+      "required": [
+        "finding_id",
+        "claim_type",
+        "statement",
+        "evidence",
+        "assumptions",
+        "limitations",
+        "recommended_action",
+        "evidence_quality",
+        "evidence_assessment"
+      ],
+      "properties": {
+        "finding_id": { "type": "string" },
+        "claim_type": {
+          "type": "string",
+          "enum": ["observed", "calculated", "simulated", "hypothesis"]
+        },
+        "statement": { "type": "string" },
+        "evidence": { "type": "array" },
+        "assumptions": { "type": "array", "items": { "type": "string" } },
+        "limitations": { "type": "array", "items": { "type": "string" } },
+        "recommended_action": { "type": "array", "items": { "type": "string" } },
+        "evidence_quality": {
+          "type": "string",
+          "enum": ["high", "medium", "low", "insufficient"],
+          "description": "A qualitative label decided by the finding's own family. It is not a probability. Kept for compatibility with engine 0.1.0 consumers."
+        },
+        "evidence_assessment": {
+          "type": "object",
+          "description": "Everything that produced evidence_quality, so the label can be recomputed by hand.",
+          "required": ["factors", "site_verified", "rationale"],
+          "additionalProperties": false,
+          "properties": {
+            "factors": {
+              "type": "object",
+              "description": "The inputs of the category-specific rule. Keys differ per finding family and are intentionally open."
+            },
+            "site_verified": {
+              "type": "boolean",
+              "description": "Whether a human confirmed the claim on the floor. Always false in the Community Edition, which has no channel to record a verification."
+            },
+            "rationale": { "type": "string" },
+            "caps_applied": {
+              "type": "array",
+              "items": { "type": "string" },
+              "description": "Reasons the level was held below what the sample size alone would allow."
+            }
+          }
+        }
+      }
+    }
+  }
+}

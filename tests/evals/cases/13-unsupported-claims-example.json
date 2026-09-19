@@ -1,0 +1,20 @@
+{
+  "case_id": "unsupported-claims-example",
+  "category": "unsupported claims",
+  "description": "Even with an accepted swap the wording stays an estimate and no worker data appears.",
+  "dataset_path": "../../../examples/fictional-small-warehouse/dataset.json",
+  "expected_status": "ok",
+  "expected_recommendation_count": 1,
+  "allowed_recommendations": [
+    "SKU-1001|SKU-1004"
+  ],
+  "forbidden_report_substrings": [
+    "guaranteed",
+    "picker_name",
+    "employee_id",
+    "worker_name",
+    "is congested",
+    "optimal layout",
+    "will save"
+  ]
+}

@@ -1,0 +1,17 @@
+edge_id,node_from,node_to,length_meters,two_way,modes
+E01,N01,N02,10.0,true,pedestrian|forklift
+E02,N02,N03,10.0,true,pedestrian|forklift
+E03,N03,N04,10.0,true,pedestrian|forklift
+E04,N04,N11,10.0,true,pedestrian|forklift
+E05,N02,N05,10.0,true,pedestrian|forklift
+E06,N05,N06,10.0,true,pedestrian|forklift
+E07,N03,N07,10.0,true,pedestrian|forklift
+E08,N07,N08,10.0,true,pedestrian|forklift
+E09,N04,N09,10.0,true,pedestrian
+E10,N09,N10,10.0,true,pedestrian
+E11,N11,N12,10.0,true,pedestrian|forklift
+E12,N06,N08,10.0,true,pedestrian
+E13,N08,N10,10.0,true,pedestrian
+E14,N05,N07,10.0,true,pedestrian
+E15,N07,N09,10.0,true,pedestrian
+E16,N12,N04,14.0,false,forklift

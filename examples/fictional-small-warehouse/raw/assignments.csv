@@ -1,0 +1,11 @@
+article_no,bin_code,assignment_role,units_on_hand,units_max
+SKU-1001,L-008,pick,120,200
+SKU-1002,L-004,pick,150,220
+SKU-1003,L-007,pick,80,140
+SKU-1004,L-001,pick,90,160
+SKU-1005,L-003,pick,60,100
+SKU-1006,L-005,pick,8,12
+SKU-1007,L-009,pick,40,70
+SKU-1008,L-002,pick,25,40
+SKU-1001,L-R01,reserve,400,600
+SKU-1002,L-R02,reserve,500,700

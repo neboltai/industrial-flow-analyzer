@@ -1,0 +1,13 @@
+bin_code,access_node,zone,bin_type,volume_m3,weight_capacity_kg,max_unit_weight_kg,temperature_zone,hazard_allowed,modes,rack_level,is_fixed
+L-001,N05,Z-A,pick,1.2,300.0,15.0,ambient,none,pedestrian|forklift,1,false
+L-002,N05,Z-A,pick,1.2,300.0,15.0,ambient,none,pedestrian|forklift,1,true
+L-003,N06,Z-A,pick,1.0,250.0,15.0,ambient,none|flammable,pedestrian|forklift,1,false
+L-004,N06,Z-A,pick,1.0,250.0,15.0,ambient,none|flammable,pedestrian|forklift,1,false
+L-005,N07,Z-B,pick,1.5,600.0,50.0,ambient,none,pedestrian|forklift,1,false
+L-006,N07,Z-B,pick,1.5,600.0,50.0,ambient,none,pedestrian|forklift,1,false
+L-007,N08,Z-B,pick,1.2,300.0,15.0,ambient,none,pedestrian|forklift,1,false
+L-008,N08,Z-B,pick,1.2,300.0,15.0,ambient,none,pedestrian|forklift,1,false
+L-009,N09,Z-C,pick,0.8,200.0,15.0,chilled,none,pedestrian,1,false
+L-010,N10,Z-C,pick,0.8,200.0,15.0,chilled,none,pedestrian,1,false
+L-R01,N06,Z-A,reserve,4.0,1200.0,50.0,ambient,none,pedestrian|forklift,2,false
+L-R02,N08,Z-B,reserve,4.0,1200.0,50.0,ambient,none,pedestrian|forklift,2,false

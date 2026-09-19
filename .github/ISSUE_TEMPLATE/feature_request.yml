@@ -1,0 +1,15 @@
+name: Feature request
+description: Propose an auditable improvement.
+body:
+  - type: textarea
+    id: decision
+    attributes:
+      label: Which planning decision would this support?
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Required inputs, expected outputs and validation approach
+    validations:
+      required: true

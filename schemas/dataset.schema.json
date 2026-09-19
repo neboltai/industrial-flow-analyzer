@@ -1,0 +1,187 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nebolt.ai/schemas/intralogistics-flow-analyzer/dataset.schema.json",
+  "title": "Intralogistics canonical dataset",
+  "description": "Canonical input document of the Intralogistics Flow & Slotting Analyzer. Produced by 'ifa normalize' from CSV exports plus an explicit mapping, and consumed by every other command.",
+  "type": "object",
+  "required": ["schema_version", "meta", "layout", "locations", "items", "assignments", "picks", "config"],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": { "type": "string", "const": "1.0" },
+    "meta": { "$ref": "#/$defs/meta" },
+    "layout": { "$ref": "#/$defs/layout" },
+    "locations": { "type": "array", "items": { "$ref": "#/$defs/location" } },
+    "items": { "type": "array", "items": { "$ref": "#/$defs/item" } },
+    "assignments": { "type": "array", "items": { "$ref": "#/$defs/assignment" } },
+    "picks": { "type": "array", "items": { "$ref": "#/$defs/pick" } },
+    "config": { "$ref": "#/$defs/config" }
+  },
+  "$defs": {
+    "mode": { "type": "string", "enum": ["pedestrian", "forklift", "tugger"] },
+    "meta": {
+      "type": "object",
+      "required": ["dataset_id", "distance_unit", "fictional"],
+      "properties": {
+        "dataset_id": { "type": "string", "minLength": 1 },
+        "site_id": { "type": ["string", "null"] },
+        "period_start": { "type": ["string", "null"], "description": "ISO 8601 timestamp" },
+        "period_end": { "type": ["string", "null"], "description": "ISO 8601 timestamp" },
+        "distance_unit": { "type": "string", "const": "m" },
+        "time_zone": { "type": ["string", "null"] },
+        "source": { "type": ["string", "null"] },
+        "fictional": {
+          "type": "boolean",
+          "description": "True for every dataset shipped with this repository."
+        },
+        "sequence_basis": {
+          "type": "string",
+          "enum": ["planned", "scan_confirmed", "observed", "unknown"],
+          "default": "unknown",
+          "description": "Provenance of the pick sequence. Additive in engine 0.1.1: a document that omits it is read as 'unknown'. 'planned' and 'unknown' describe an intention, so they never support a claim about the order actually walked."
+        },
+        "distance_basis": {
+          "type": "string",
+          "enum": ["declared_graph_shortest_path"],
+          "default": "declared_graph_shortest_path",
+          "description": "How distances are obtained. Schema 1.0 computes the shortest permitted path on the declared aisle graph; it never measures movement. Additive in engine 0.1.1."
+        }
+      }
+    },
+    "layout": {
+      "type": "object",
+      "required": ["nodes", "edges"],
+      "properties": {
+        "nodes": { "type": "array", "items": { "$ref": "#/$defs/node" } },
+        "edges": { "type": "array", "items": { "$ref": "#/$defs/edge" } }
+      }
+    },
+    "node": {
+      "type": "object",
+      "required": ["node_id", "x_m", "y_m", "node_type"],
+      "properties": {
+        "node_id": { "type": "string", "minLength": 1 },
+        "x_m": { "type": "number" },
+        "y_m": { "type": "number" },
+        "node_type": {
+          "type": "string",
+          "enum": ["junction", "depot", "receiving", "shipping", "packing", "location_access"]
+        },
+        "zone_id": { "type": ["string", "null"] }
+      },
+      "description": "Coordinates are used for drawing only. They are never substituted for a missing graph distance."
+    },
+    "edge": {
+      "type": "object",
+      "required": ["edge_id", "from_node", "to_node", "distance_m", "bidirectional", "allowed_modes"],
+      "properties": {
+        "edge_id": { "type": "string", "minLength": 1 },
+        "from_node": { "type": "string", "minLength": 1 },
+        "to_node": { "type": "string", "minLength": 1 },
+        "distance_m": { "type": "number", "exclusiveMinimum": 0 },
+        "bidirectional": { "type": "boolean" },
+        "allowed_modes": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/mode" } }
+      },
+      "description": "distance_m is the reference distance for every calculation."
+    },
+    "location": {
+      "type": "object",
+      "required": ["location_id", "access_node_id", "location_type"],
+      "properties": {
+        "location_id": { "type": "string", "minLength": 1 },
+        "access_node_id": { "type": "string", "minLength": 1 },
+        "zone_id": { "type": ["string", "null"] },
+        "location_type": { "type": "string", "enum": ["pick", "reserve", "buffer", "staging"] },
+        "capacity_volume_m3": { "type": ["number", "null"], "exclusiveMinimum": 0 },
+        "capacity_weight_kg": { "type": ["number", "null"], "exclusiveMinimum": 0 },
+        "max_unit_weight_kg": { "type": ["number", "null"], "exclusiveMinimum": 0 },
+        "temperature_zone": { "type": ["string", "null"] },
+        "hazard_classes_allowed": { "type": "array", "items": { "type": "string" } },
+        "allowed_modes": { "type": "array", "items": { "$ref": "#/$defs/mode" } },
+        "level": { "type": ["integer", "null"] },
+        "fixed": {
+          "type": "boolean",
+          "description": "True forbids any recommendation moving stock into or out of this location."
+        }
+      }
+    },
+    "item": {
+      "type": "object",
+      "required": ["sku"],
+      "properties": {
+        "sku": { "type": "string", "minLength": 1 },
+        "description": { "type": "string" },
+        "unit_volume_m3": { "type": ["number", "null"], "exclusiveMinimum": 0 },
+        "unit_weight_kg": { "type": ["number", "null"], "exclusiveMinimum": 0 },
+        "temperature_zone": { "type": ["string", "null"] },
+        "hazard_class": { "type": ["string", "null"] },
+        "handling_mode": { "anyOf": [{ "$ref": "#/$defs/mode" }, { "type": "null" }] },
+        "fixed_location": { "type": "boolean" }
+      }
+    },
+    "assignment": {
+      "type": "object",
+      "required": ["sku", "location_id", "role"],
+      "properties": {
+        "sku": { "type": "string", "minLength": 1 },
+        "location_id": { "type": "string", "minLength": 1 },
+        "role": { "type": "string", "enum": ["pick", "reserve"] },
+        "current_units": { "type": ["integer", "null"], "minimum": 0 },
+        "max_units": { "type": ["integer", "null"], "exclusiveMinimum": 0 }
+      },
+      "description": "Schema 1.0 allows exactly one active pick assignment per SKU. Reserve assignments are represented but not optimised."
+    },
+    "pick": {
+      "type": "object",
+      "required": ["pick_id", "order_id", "sku", "location_id", "quantity"],
+      "properties": {
+        "pick_id": { "type": "string", "minLength": 1 },
+        "order_id": { "type": "string", "minLength": 1 },
+        "pick_sequence": {
+          "type": ["integer", "null"],
+          "exclusiveMinimum": 0,
+          "description": "Unique inside an order. File row order is never used as a substitute; without it, route reconstruction is unavailable for that order."
+        },
+        "timestamp": { "type": ["string", "null"], "description": "ISO 8601 timestamp" },
+        "sku": { "type": "string", "minLength": 1 },
+        "location_id": { "type": "string", "minLength": 1 },
+        "quantity": { "type": "number", "exclusiveMinimum": 0 },
+        "mode": { "anyOf": [{ "$ref": "#/$defs/mode" }, { "type": "null" }] }
+      }
+    },
+    "config": {
+      "type": "object",
+      "required": ["route_start_node", "route_end_node", "default_mode", "abc_basis", "abc_thresholds"],
+      "properties": {
+        "route_start_node": { "type": "string", "minLength": 1 },
+        "route_end_node": { "type": "string", "minLength": 1 },
+        "default_mode": { "$ref": "#/$defs/mode" },
+        "abc_basis": { "type": "string", "enum": ["pick_lines", "units", "orders"] },
+        "abc_thresholds": {
+          "type": "object",
+          "required": ["A", "B"],
+          "properties": {
+            "A": { "type": "number", "exclusiveMinimum": 0, "maximum": 1 },
+            "B": { "type": "number", "exclusiveMinimum": 0, "maximum": 1 }
+          }
+        },
+        "xyz_time_bucket": { "type": "string", "enum": ["day", "week"] },
+        "xyz_minimum_buckets": { "type": "integer", "minimum": 1 },
+        "xyz_thresholds": {
+          "type": "object",
+          "properties": {
+            "X": { "type": "number", "minimum": 0 },
+            "Y": { "type": "number", "minimum": 0 }
+          }
+        },
+        "minimum_improvement_percent": { "type": "number", "minimum": 0 },
+        "maximum_recommendations": { "type": "integer", "minimum": 0 },
+        "maximum_candidate_swaps": { "type": "integer", "minimum": 0 },
+        "affinity_minimum_co_picks": { "type": "integer", "minimum": 1 },
+        "affinity_minimum_support": { "type": "number", "minimum": 0, "maximum": 1 },
+        "restrict_swaps_to_same_zone": { "type": "boolean" },
+        "allow_level_change": { "type": "boolean" },
+        "spaghetti_top_orders": { "type": "integer", "minimum": 1 }
+      }
+    }
+  }
+}
