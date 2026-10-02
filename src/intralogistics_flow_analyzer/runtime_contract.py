@@ -4,6 +4,7 @@ from typing import Any
 
 from .models import Dataset, ENGINE_VERSION
 from .reporting import analyse
+from .validation import validate
 
 PRODUCT_ID="flow"
 PRODUCT_VERSION=ENGINE_VERSION
@@ -24,44 +25,41 @@ def health_document() -> dict[str,Any]:
     }
 
 
+def validate_request(request: dict[str,Any]) -> dict[str,Any]:
+    validated=_validate_request(request,require_run=False)
+    try:
+        dataset=Dataset.from_dict(validated["dataset"])
+        report=validate(dataset)
+    except Exception as exc:
+        raise RuntimeContractError(str(exc)) from exc
+
+    return {
+        "contract_version":CONTRACT_VERSION,
+        "product_id":PRODUCT_ID,
+        "product_version":PRODUCT_VERSION,
+        "engine_version":ENGINE_VERSION,
+        "status":"invalid" if report.status=="data_error" else ("partial" if report.status!="ok" else "valid"),
+        "issues":[issue.to_dict() for issue in report.issues],
+    }
+
+
 def analyze_request(request: dict[str,Any]) -> dict[str,Any]:
-    if not isinstance(request,dict):
-        raise RuntimeContractError("request must be a JSON object")
-    if request.get("contract_version")!=CONTRACT_VERSION:
-        raise RuntimeContractError("unsupported runtime contract version")
-    if request.get("product_id")!=PRODUCT_ID:
-        raise RuntimeContractError("product_id must be flow")
-    if request.get("product_version")!=PRODUCT_VERSION:
-        raise RuntimeContractError(f"product_version must be {PRODUCT_VERSION}")
-
-    platform_run_id=str(request.get("platform_run_id") or "").strip()
-    if not platform_run_id:
-        raise RuntimeContractError("platform_run_id is required")
-
-    input_fingerprint=str(request.get("input_fingerprint") or "").strip()
-    configuration_fingerprint=str(request.get("configuration_fingerprint") or "").strip()
-    if len(input_fingerprint)!=64:
-        raise RuntimeContractError("input_fingerprint must be a SHA-256 hex digest")
-    if len(configuration_fingerprint)!=64:
-        raise RuntimeContractError("configuration_fingerprint must be a SHA-256 hex digest")
-
-    raw_dataset=request.get("dataset")
-    if not isinstance(raw_dataset,dict):
-        raise RuntimeContractError("dataset must be a canonical Flow JSON object")
-
-    configuration=request.get("configuration") or {}
-    if not isinstance(configuration,dict):
-        raise RuntimeContractError("configuration must be an object")
-    unknown=set(configuration)-{"top_recommendations"}
-    if unknown:
-        raise RuntimeContractError(
-            "unsupported runtime configuration keys: "+", ".join(sorted(unknown))
-        )
+    validated=_validate_request(request,require_run=True)
+    platform_run_id=validated["platform_run_id"]
+    input_fingerprint=validated["input_fingerprint"]
+    raw_dataset=validated["dataset"]
+    configuration=validated["configuration"]
 
     try:
         dataset=Dataset.from_dict(raw_dataset)
     except Exception as exc:
         raise RuntimeContractError(str(exc)) from exc
+
+    unknown=set(configuration)-{"top_recommendations"}
+    if unknown:
+        raise RuntimeContractError(
+            "unsupported runtime configuration keys: "+", ".join(sorted(unknown))
+        )
 
     top=configuration.get("top_recommendations")
     if top is not None:
@@ -78,6 +76,43 @@ def analyze_request(request: dict[str,Any]) -> dict[str,Any]:
         input_fingerprint=input_fingerprint,
         analysis=result.analysis,
     )
+
+
+def _validate_request(request: dict[str,Any], *, require_run: bool) -> dict[str,Any]:
+    if not isinstance(request,dict):
+        raise RuntimeContractError("request must be a JSON object")
+    if request.get("contract_version")!=CONTRACT_VERSION:
+        raise RuntimeContractError("unsupported runtime contract version")
+    if request.get("product_id")!=PRODUCT_ID:
+        raise RuntimeContractError("product_id must be flow")
+    if request.get("product_version")!=PRODUCT_VERSION:
+        raise RuntimeContractError(f"product_version must be {PRODUCT_VERSION}")
+
+    platform_run_id=str(request.get("platform_run_id") or "").strip()
+    if require_run and not platform_run_id:
+        raise RuntimeContractError("platform_run_id is required")
+
+    input_fingerprint=str(request.get("input_fingerprint") or "").strip()
+    configuration_fingerprint=str(request.get("configuration_fingerprint") or "").strip()
+    if len(input_fingerprint)!=64:
+        raise RuntimeContractError("input_fingerprint must be a SHA-256 hex digest")
+    if len(configuration_fingerprint)!=64:
+        raise RuntimeContractError("configuration_fingerprint must be a SHA-256 hex digest")
+
+    raw_dataset=request.get("dataset")
+    if not isinstance(raw_dataset,dict):
+        raise RuntimeContractError("dataset must be a canonical Flow JSON object")
+
+    configuration=request.get("configuration") or {}
+    if not isinstance(configuration,dict):
+        raise RuntimeContractError("configuration must be an object")
+
+    return {
+        "platform_run_id":platform_run_id,
+        "input_fingerprint":input_fingerprint,
+        "dataset":raw_dataset,
+        "configuration":configuration,
+    }
 
 
 def normalize_result(
