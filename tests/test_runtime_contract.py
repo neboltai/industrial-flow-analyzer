@@ -9,6 +9,7 @@ from intralogistics_flow_analyzer.runtime_contract import (
     RuntimeContractError,
     analyze_request,
     health_document,
+    validate_request,
 )
 
 ROOT=Path(__file__).resolve().parents[1]
@@ -34,6 +35,13 @@ class RuntimeContractTest(unittest.TestCase):
         self.assertEqual("ready",health["status"])
         self.assertEqual("flow",health["product_id"])
         self.assertEqual("0.1.2",health["version"])
+
+    def test_dataset_validation(self):
+        request=self.request()
+        request.pop("platform_run_id")
+        result=validate_request(request)
+        self.assertIn(result["status"],{"valid","partial","invalid"})
+        self.assertEqual("flow",result["product_id"])
 
     def test_analysis_is_normalized(self):
         result=analyze_request(self.request())
